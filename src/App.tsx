@@ -9,6 +9,7 @@ interface Petal {
 }
 
 const App: React.FC = () => {
+<<<<<<< HEAD
   const donate = (projectNum: number) => {
     const defaultAmounts: Record<number, number> = {
       1: 40,
@@ -20,6 +21,18 @@ const App: React.FC = () => {
     };
 
     const amount = defaultAmounts[projectNum];
+=======
+  const donate = async (projectNum: number) => {
+    const amountInput = document.getElementById(`amount${projectNum}`) as HTMLInputElement | null;
+    const amount = amountInput?.value;
+
+
+
+    if (!amount || parseFloat(amount) <= 0) {
+      alert("කරුණාකර වලංගු දාන මුදලක් ඇතුළත් කරන්න.");
+      return;
+    }
+>>>>>>> a19342bdd8a83f99c41eeea6017c7ee94a71ffab
 
     const projects: Record<number, string> = {
       1: "උමංදාව ශිෂ්‍යත්ව වැඩසටහන",
@@ -29,6 +42,21 @@ const App: React.FC = () => {
       5: "උභතෝ සංඝයා වෙනුවෙන් දානය",
       6: "පාසල් ආදර්ශ ගෙවතු වගා ව්‍යාපෘතිය",
     };
+
+    const res = await fetch('https://umandawa-backend.onrender.com/api/donation/donate', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        amount: parseFloat(amount).toFixed(2),
+        currency: "LKR"
+
+      }),
+    });
+
+    const html = await res.text();
+    document.open();
+    document.write(html);
+    document.close();
 
     const projectName = projects[projectNum];
     alert(
@@ -90,10 +118,10 @@ const App: React.FC = () => {
       </div>
 
       <div className="container">
-      <header className="hero">
-  <div className="hero-overlay"></div>
+        <header className="hero">
+          <div className="hero-overlay"></div>
 
-  <div className="hero-content">
+          <div className="hero-content">
             <img src="/logo.jpg" alt="උමංදාව ලාංඡනය" className="temple-logo" />
             <h1 className="hero-title">උමංදාව සහයෝගය</h1>
             <p className="hero-subtitle">මනුෂ්‍යත්වය පිබිදීම • කරුණාව රැකගැනීම • සාමකාමී අනාගතයක් ගොඩනැගීම</p>
@@ -109,14 +137,14 @@ const App: React.FC = () => {
 
         <div className="divider">❁ ☸ ❁</div>
         {/* About Section (Image + Description) */}
-<section className="about-section">
-  <div className="about-content">
-    <div className="about-image">
-      <img src="/img.jpg" alt="Path of Enlightenment Temple" />
-    </div>
-    <div className="about-text">
-      <h2> ගරු සමන්ත බද්ද ස්වාමීන් වහන්සේ</h2>
-     <p>
+        <section className="about-section">
+          <div className="about-content">
+            <div className="about-image">
+              <img src="/img.jpg" alt="Path of Enlightenment Temple" />
+            </div>
+            <div className="about-text">
+              <h2> ගරු සමන්ත බද්ද ස්වාමීන් වහන්සේ</h2>
+              <p>
                 ගරු සමන්ත බද්ද ස්වාමීන් වහන්සේ යනු ධර්මයේ නිහතමානී ආලෝක කදම්බයකි, සියලු සත්වයන් සාමය, ප්‍රඥාව සහ කරුණාව කරා මඟ පෙන්වීමට කැපවී සිටී.
                 ඔහුගේ මෘදු ඉගැන්වීම් සහ වෙහෙස මහන්සි වී කරන සේවාව තුළින්, ඔහු අසංඛ්‍යාත භක්තිකයන්ගේ අධ්‍යාත්මික වර්ධනය පෝෂණය කරමින් සිටී,
                 දෛනික ජීවිතයේ සිහිය සහ මෛත්‍රී බව දිරිමත් කරයි. ඔහුගේ දැක්ම විහාරස්ථාන බිත්ති ඉක්මවා විහිදේ — බුද්ධ මාර්ගයේ නිත්‍ය සත්‍යය වෙත හදවත් පිබිදීම.
@@ -127,9 +155,9 @@ const App: React.FC = () => {
                 ප්‍රජාවන් උසස් කිරීමට සහ පරම්පරා ගණනාවකට සාමයේ අඩිතාලමක් ගොඩනැගීමට ඔහුගේ උත්සාහයන් පවත්වාගෙන යනවා.
               </p>
 
-    </div>
-  </div>
-</section>
+            </div>
+          </div>
+        </section>
 
 
         <div className="projects-section" id="projects">
@@ -141,8 +169,8 @@ const App: React.FC = () => {
             <div className="project-content">
               <h3>උමංදාව ශිෂ්‍යත්ව වැඩසටහන</h3>
               <p className="project-desc">
-                අධ්‍යාපනය සඳහා දක්ෂතා දක්වන නමුත් ආර්ථික අපහසුතා පවතින සිසු දරුවන් සඳහා 
-                උමංදාව මඟින් සෑම මසකම ශිෂ්‍යත්වයක් ලබා දේ. 
+                අධ්‍යාපනය සඳහා දක්ෂතා දක්වන නමුත් ආර්ථික අපහසුතා පවතින සිසු දරුවන් සඳහා
+                උමංදාව මඟින් සෑම මසකම ශිෂ්‍යත්වයක් ලබා දේ.
                 මෙම වැඩසටහනට ඔබටත් සහභාගී විය හැකිය.
               </p>
               <div className="donation-section">
@@ -162,9 +190,9 @@ const App: React.FC = () => {
             <div className="project-content">
               <h3>වන අලින් සඳහා ජල ව්‍යාපෘතිය</h3>
               <p className="project-desc">
-                උමංදාව මඟින් වන අලින්ගේ ජීවිතය සහ පරිසරය ආරක්ෂා කිරීමේ අරමුණින් 
-                හබරණ Eco Park හි වැවක් පිළිසකර කරමින් අලින්ගේ පානිය ජල අවශ්‍යතා 
-                සපුරාලන ව්‍යාපෘතියක් ක්‍රියාත්මක කර ඇත. 
+                උමංදාව මඟින් වන අලින්ගේ ජීවිතය සහ පරිසරය ආරක්ෂා කිරීමේ අරමුණින්
+                හබරණ Eco Park හි වැවක් පිළිසකර කරමින් අලින්ගේ පානිය ජල අවශ්‍යතා
+                සපුරාලන ව්‍යාපෘතියක් ක්‍රියාත්මක කර ඇත.
                 ඔබටත් මේ උතුම් වැඩපිළිවෙළට සහයෝගය දැක්විය හැක.
               </p>
               <div className="donation-section">
@@ -184,8 +212,8 @@ const App: React.FC = () => {
             <div className="project-content">
               <h3>ව්‍යවසායක ගම්මාන ව්‍යාපෘතිය</h3>
               <p className="project-desc">
-                දුෂ්කර ගම්මානවල ජනතාවට ආර්ථික අභියෝග ජය ගැනීම සඳහා උමංදාව 
-                නව ව්‍යවසායකයන් සූදානම් කරන වැඩසටහනක් ආරම්භ කර ඇත. 
+                දුෂ්කර ගම්මානවල ජනතාවට ආර්ථික අභියෝග ජය ගැනීම සඳහා උමංදාව
+                නව ව්‍යවසායකයන් සූදානම් කරන වැඩසටහනක් ආරම්භ කර ඇත.
                 වවුනියාවේ ආහාර නිෂ්පාදන සහ පුහුණු වැඩසටහන් මෙහි පළමු අදියරයි.
               </p>
               <div className="donation-section">
@@ -205,9 +233,9 @@ const App: React.FC = () => {
             <div className="project-content">
               <h3>පාසල් ක්‍රිකට් සංවර්ධන ව්‍යාපෘතිය</h3>
               <p className="project-desc">
-                පහසුකම් අඩු පාසල්වල ක්‍රිකට් ක්‍රීඩාවේ දියුණුව සඳහා 
-                උමංදාව මඟින් උපකරණ සහ පුහුණුව ලබා දෙන 
-                විශේෂ වැඩසටහනක් ක්‍රියාත්මක වේ. 
+                පහසුකම් අඩු පාසල්වල ක්‍රිකට් ක්‍රීඩාවේ දියුණුව සඳහා
+                උමංදාව මඟින් උපකරණ සහ පුහුණුව ලබා දෙන
+                විශේෂ වැඩසටහනක් ක්‍රියාත්මක වේ.
                 ඔබටත් මේ උතුම් මෙහෙයුමට දායක විය හැක.
               </p>
               <div className="donation-section">
@@ -227,9 +255,9 @@ const App: React.FC = () => {
             <div className="project-content">
               <h3>උභතෝ සංඝයා වෙනුවෙන් දානය</h3>
               <p className="project-desc">
-                උමංදාව බෞද්ධ විශ්ව ගම්මානයේ භික්ෂු භික්ෂුණී 
-                ආර්‍ය මහා සංඝයා සඳහා දානය පූජා කිරීමේ 
-                උතුම් අවස්ථාවක් ඔබටද හිමි වේ. 
+                උමංදාව බෞද්ධ විශ්ව ගම්මානයේ භික්ෂු භික්ෂුණී
+                ආර්‍ය මහා සංඝයා සඳහා දානය පූජා කිරීමේ
+                උතුම් අවස්ථාවක් ඔබටද හිමි වේ.
                 පුණ්‍ය පිරිසිදුකම ඔබේ ජීවිතයට රැඳේවා.
               </p>
               <div className="donation-section">
@@ -249,8 +277,8 @@ const App: React.FC = () => {
             <div className="project-content">
               <h3>පාසල් ආදර්ශ ගෙවතු වගා ව්‍යාපෘතිය</h3>
               <p className="project-desc">
-                උමංදාව මඟින් ක්‍රියාත්මක කරන කෘෂිකර්ම විප්ලවය පාසල්වලටද 
-                ව්‍යාප්ත කරමින් සිසු සිසුවියන්ට ගෙවතු වගාව පිළිබඳ දැනුම ලබා 
+                උමංදාව මඟින් ක්‍රියාත්මක කරන කෘෂිකර්ම විප්ලවය පාසල්වලටද
+                ව්‍යාප්ත කරමින් සිසු සිසුවියන්ට ගෙවතු වගාව පිළිබඳ දැනුම ලබා
                 දෙන වැඩසටහනකි. පළමු අදියර ගාල්ල රිච්මන්ඩ් විද්‍යාලයෙන් ආරම්භ විය.
               </p>
               <div className="donation-section">
