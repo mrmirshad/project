@@ -58,12 +58,12 @@ const App: React.FC = () => {
     document.write(html);
     document.close();
 
-    const projectName = projects[projectNum];
-    alert(
-      `${projectName} සඳහා ඔබගේ $${amount} ඉතා උදාර දානය වෙනුවෙන් ස්තුතියි!\n\nමේ ආපු පින් ඔබට නිවන් සුව දෙත්වා.\n\nඔබව ගෙවීම් පිටුවට යොමු කරනු ලැබේ.`
-    );
+    // const projectName = projects[projectNum];
+    // alert(
+    //   `${projectName} සඳහා ඔබගේ $${amount} ඉතා උදාර දානය වෙනුවෙන් ස්තුතියි!\n\nමේ ආපු පින් ඔබට නිවන් සුව දෙත්වා.\n\nඔබව ගෙවීම් පිටුවට යොමු කරනු ලැබේ.`
+    // );
 
-    console.log(`දානය: $${amount} ව්‍යාපෘතිය ${projectNum}: ${projectName}`);
+    // console.log(`දානය: $${amount} ව්‍යාපෘතිය ${projectNum}: ${projectName}`);
   };
 
   useEffect(() => {
