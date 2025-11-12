@@ -10,7 +10,6 @@ interface Petal {
 
 const App: React.FC = () => {
   const donate = async (projectNum: number) => {
-<<<<<<< HEAD
     const defaultAmounts: Record<number, number> = {
       1: 40,
       2: 60,
@@ -20,8 +19,8 @@ const App: React.FC = () => {
       6: 55,
     };
 
-    const amount = defaultAmounts[projectNum];
-=======
+    // const amount = defaultAmounts[projectNum];
+
     const amountInput = document.getElementById(`amount${projectNum}`) as HTMLInputElement | null;
     const amount = amountInput?.value;
 
@@ -31,7 +30,6 @@ const App: React.FC = () => {
       alert("කරුණාකර වලංගු දාන මුදලක් ඇතුළත් කරන්න.");
       return;
     }
->>>>>>> e0c5cc0e05b2f17f48e8f277a916b24753cfd7d9
 
     const projects: Record<number, string> = {
       1: "උමංදාව ශිෂ්‍යත්ව වැඩසටහන",
