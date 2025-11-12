@@ -14,24 +14,25 @@ const App: React.FC = () => {
     const amount = amountInput?.value;
 
     if (!amount || parseFloat(amount) <= 0) {
-      alert("Please enter a valid donation amount.");
+      alert("කරුණාකර වලංගු දාන මුදලක් ඇතුළත් කරන්න.");
       return;
     }
 
     const projects: Record<number, string> = {
-      1: "Temple Renovation",
-      2: "Monastic Support",
-      3: "Dharma Library",
-      4: "Community Outreach",
-      5: "Sacred Garden",
+      1: "උමංදාව ශිෂ්‍යත්ව වැඩසටහන",
+      2: "වන අලින් සඳහා ජල ව්‍යාපෘතිය",
+      3: "ව්‍යවසායක ගම්මාන ව්‍යාපෘතිය",
+      4: "පාසල් ක්‍රිකට් සංවර්ධන ව්‍යාපෘතිය",
+      5: "උභතෝ සංඝයා වෙනුවෙන් දානය",
+      6: "පාසල් ආදර්ශ ගෙවතු වගා ව්‍යාපෘතිය",
     };
 
     const projectName = projects[projectNum];
     alert(
-      `Thank you for your generous dana of $${amount} to ${projectName}!\n\nमे आपको शान्ति मिले\nMay you find peace and enlightenment.\n\nYou will be redirected to the payment page.`
+      `${projectName} සඳහා ඔබගේ $${amount} ඉතා උදාර දානය වෙනුවෙන් ස්තුතියි!\n\nමේ ආපු පින් ඔබට නිවන් සුව දෙත්වා.\n\nඔබව ගෙවීම් පිටුවට යොමු කරනු ලැබේ.`
     );
 
-    console.log(`Donation: $${amount} to Project ${projectNum}: ${projectName}`);
+    console.log(`දානය: $${amount} ව්‍යාපෘතිය ${projectNum}: ${projectName}`);
   };
 
   useEffect(() => {
@@ -90,20 +91,18 @@ const App: React.FC = () => {
   <div className="hero-overlay"></div>
 
   <div className="hero-content">
-    <img src="/logo.jpg" alt="Umandawa Logo" className="temple-logo" />
-    <h1 className="hero-title">Support Umandawa</h1>
-    <p className="hero-subtitle">Awaken Humanity • Sustain Compassion • Build a Peaceful Future</p>
+            <img src="/logo.jpg" alt="උමංදාව ලාංඡනය" className="temple-logo" />
+            <h1 className="hero-title">උමංදාව සහයෝගය</h1>
+            <p className="hero-subtitle">මනුෂ්‍යත්වය පිබිදීම • කරුණාව රැකගැනීම • සාමකාමී අනාගතයක් ගොඩනැගීම</p>
 
-    <p className="hero-text">
-      The <strong>Umandawa Global Buddhist Village</strong> is a living model of harmony between
-      spiritual awakening and sustainable living.  
-      Your contribution empowers projects in education, environment, community development, and
-      Dhamma service — helping create a mindful and compassionate world.
-    </p>
+            <p className="hero-text">
+              <strong>උමංදාව ගෝලීය බෞද්ධ ගම්මානය</strong> යනු අධ්‍යාත්මික පිබිදීම සහ තිරසාර ජීවන රටාව අතර සාමය පෙන්වන ජීවමාන ආදර්ශයකි.
+              ඔබේ දායකත්වය අධ්‍යාපනය, පරිසරය, ප්‍රජා සංවර්ධනය සහ ධර්ම සේවාවේ ව්‍යාපෘති බල ගන්වයි — සිහියෙන් හා කරුණාවෙන් යුත් ලෝකයක් නිර්මාණය කිරීමට උපකාරී වේ.
+            </p>
 
-    <a href="#projects" className="hero-btn">Contribute Now</a>
-  </div>
-</header>
+            <a href="#projects" className="hero-btn">දැන් දායක වන්න</a>
+          </div>
+        </header>
 
         <div className="divider">❁ ☸ ❁</div>
         {/* About Section (Image + Description) */}
@@ -113,18 +112,17 @@ const App: React.FC = () => {
       <img src="/img.jpg" alt="Path of Enlightenment Temple" />
     </div>
     <div className="about-text">
-      <h2></h2>
-      <p>
-  Venerable Samantha Badda Thero is a humble beacon of Dhamma, devoted to guiding all beings toward peace, wisdom, and compassion. 
-  Through his gentle teachings and tireless service, he continues to nurture the spiritual growth of countless devotees, 
-  inspiring mindfulness and loving-kindness in daily life. His vision extends beyond the walls of the temple—awakening 
-  hearts to the timeless truth of the Buddha’s path.
-</p>
-<p>
-  With your kind support, the Thero’s mission of compassion and wisdom continues to flourish. 
-  Each offering you make becomes a seed of merit, sustaining his efforts to spread the light of Dhamma, 
-  uplift communities, and build a foundation of peace for generations to come.
-</p>
+      <h2> ගරු සමන්ත බද්ද ස්වාමීන් වහන්සේ</h2>
+     <p>
+                ගරු සමන්ත බද්ද ස්වාමීන් වහන්සේ යනු ධර්මයේ නිහතමානී ආලෝක කදම්බයකි, සියලු සත්වයන් සාමය, ප්‍රඥාව සහ කරුණාව කරා මඟ පෙන්වීමට කැපවී සිටී.
+                ඔහුගේ මෘදු ඉගැන්වීම් සහ වෙහෙස මහන්සි වී කරන සේවාව තුළින්, ඔහු අසංඛ්‍යාත භක්තිකයන්ගේ අධ්‍යාත්මික වර්ධනය පෝෂණය කරමින් සිටී,
+                දෛනික ජීවිතයේ සිහිය සහ මෛත්‍රී බව දිරිමත් කරයි. ඔහුගේ දැක්ම විහාරස්ථාන බිත්ති ඉක්මවා විහිදේ — බුද්ධ මාර්ගයේ නිත්‍ය සත්‍යය වෙත හදවත් පිබිදීම.
+              </p>
+              <p>
+                ඔබේ කාරුණික සහයෝගයෙන්, ස්වාමීන් වහන්සේගේ කරුණාව සහ ප්‍රඥාවේ මෙහෙවර දිගටම වර්ධනය වේ.
+                ඔබ කරන සෑම පූජාවක්ම පින් බීජයක් බවට පත්වේ, ධර්මයේ ආලෝකය පැතිරවීමට,
+                ප්‍රජාවන් උසස් කිරීමට සහ පරම්පරා ගණනාවකට සාමයේ අඩිතාලමක් ගොඩනැගීමට ඔහුගේ උත්සාහයන් පවත්වාගෙන යනවා.
+              </p>
 
     </div>
   </div>
