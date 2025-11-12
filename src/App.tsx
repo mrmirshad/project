@@ -164,7 +164,7 @@ const App: React.FC = () => {
                   <input type="number" id="amount1" placeholder="Enter amount ($)" min={1} defaultValue={40} />
                 </div>
                 <button className="donate-btn" onClick={() => donate(1)}>
-                  Offer Dana
+                  දායක වන්න
                 </button>
               </div>
               <p className="blessing-text">සතුට සහ සෞභාග්‍යය ඔබ වෙත ලැබේවා</p>
@@ -189,7 +189,7 @@ const App: React.FC = () => {
                   <input type="number" id="amount2" placeholder="Enter amount ($)" min={1} defaultValue={60} />
                 </div>
                 <button className="donate-btn" onClick={() => donate(2)}>
-                  Offer Dana
+                  දායක වන්න
                 </button>
               </div>
               <p className="blessing-text">සියලු සත්වයන්ට යහපත් වාසනාව ලැබේවා</p>
@@ -213,7 +213,7 @@ const App: React.FC = () => {
                   <input type="number" id="amount3" placeholder="Enter amount ($)" min={1} defaultValue={75} />
                 </div>
                 <button className="donate-btn" onClick={() => donate(3)}>
-                  Offer Dana
+                  දායක වන්න
                 </button>
               </div>
               <p className="blessing-text">ඔබේ කරුණා සදාකාලික ආලෝකයක් වේවා</p>
@@ -238,7 +238,7 @@ const App: React.FC = () => {
                   <input type="number" id="amount4" placeholder="Enter amount ($)" min={1} defaultValue={50} />
                 </div>
                 <button className="donate-btn" onClick={() => donate(4)}>
-                  Offer Dana
+                  දායක වන්න
                 </button>
               </div>
               <p className="blessing-text">ඔබේ පරිත්‍යාගය අලුත් පරපුරක් බබලවයි</p>
@@ -263,7 +263,7 @@ const App: React.FC = () => {
                   <input type="number" id="amount5" placeholder="Enter amount ($)" min={1} defaultValue={100} />
                 </div>
                 <button className="donate-btn" onClick={() => donate(5)}>
-                  Offer Dana
+                  දායක වන්න
                 </button>
               </div>
               <p className="blessing-text">සංඝසේවයෙන් පින් පිරි ලෝකයක්</p>
@@ -287,7 +287,7 @@ const App: React.FC = () => {
                   <input type="number" id="amount6" placeholder="Enter amount ($)" min={1} defaultValue={55} />
                 </div>
                 <button className="donate-btn" onClick={() => donate(6)}>
-                  Offer Dana
+                  දායක වන්න
                 </button>
               </div>
               <p className="blessing-text">මල පීසෙන ගෙවතු මගින් හදවත පිරිසිදුවේවා</p>
@@ -305,9 +305,16 @@ const App: React.FC = () => {
           </p>
           <p>— Buddha</p>
           <div className="contact-info">
-            <p>📧 donations@enlightenmenttemple.org</p>
-            <p>☎ +1 (555) 123-4567</p>
-            <p>📍 123 Dharma Way, Peace Valley</p>
+            <p><strong>Contact Information</strong></p>
+            <p>☎ +94 775 440 888</p>
+            <p>☎ +94 766 730 630</p>
+            <p>📧 info@umandawa.com</p>
+            <p>🌐 www.umandawa.com</p>
+            <p>📍 Umandawa Maha Vihara Ashramya,<br />
+               9th post, Alipallama,<br />
+               Madahapola, Kurunagala,<br />
+               Sri Lanka.</p>
+            <p>© 2025 Umandawa. Powered By Ceylon Innovation</p>
           </div>
         </footer>
       </div>
