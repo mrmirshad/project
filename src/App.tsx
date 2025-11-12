@@ -61,7 +61,7 @@ const App: React.FC = () => {
   const [petals, setPetals] = useState<Petal[]>([]);
 
   useEffect(() => {
-    const newPetals = Array.from({ length: 10 }, (_, i) => ({
+    const newPetals = Array.from({ length: 5 }, (_, i) => ({
       id: i,
       left: `${Math.random() * 100}%`,
       animationDelay: `${Math.random() * 10}s`,
@@ -110,7 +110,7 @@ const App: React.FC = () => {
 <section className="about-section">
   <div className="about-content">
     <div className="about-image">
-      <img src="/samntha.jpg" alt="Path of Enlightenment Temple" />
+      <img src="/img.jpg" alt="Path of Enlightenment Temple" />
     </div>
     <div className="about-text">
       <h2></h2>
