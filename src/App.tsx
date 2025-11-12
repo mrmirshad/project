@@ -9,8 +9,7 @@ interface Petal {
 }
 
 const App: React.FC = () => {
-<<<<<<< HEAD
-  const donate = (projectNum: number) => {
+  const donate = async (projectNum: number) => {
     const defaultAmounts: Record<number, number> = {
       1: 40,
       2: 60,
@@ -21,18 +20,6 @@ const App: React.FC = () => {
     };
 
     const amount = defaultAmounts[projectNum];
-=======
-  const donate = async (projectNum: number) => {
-    const amountInput = document.getElementById(`amount${projectNum}`) as HTMLInputElement | null;
-    const amount = amountInput?.value;
-
-
-
-    if (!amount || parseFloat(amount) <= 0) {
-      alert("කරුණාකර වලංගු දාන මුදලක් ඇතුළත් කරන්න.");
-      return;
-    }
->>>>>>> a19342bdd8a83f99c41eeea6017c7ee94a71ffab
 
     const projects: Record<number, string> = {
       1: "උමංදාව ශිෂ්‍යත්ව වැඩසටහන",
@@ -47,7 +34,7 @@ const App: React.FC = () => {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
-        amount: parseFloat(amount).toFixed(2),
+        amount: parseFloat(amount.toString()).toFixed(2),
         currency: "LKR"
 
       }),
@@ -175,7 +162,7 @@ const App: React.FC = () => {
               </p>
               <div className="donation-section">
                 <button className="donate-btn" onClick={() => donate(1)}>
-                  දායක වන්න 
+                  දායක වන්න
                 </button>
               </div>
               <p className="blessing-text">සතුට සහ සෞභාග්‍යය ඔබ වෙත ලැබේවා</p>
@@ -197,7 +184,7 @@ const App: React.FC = () => {
               </p>
               <div className="donation-section">
                 <button className="donate-btn" onClick={() => donate(2)}>
-                  දායක වන්න 
+                  දායක වන්න
                 </button>
               </div>
               <p className="blessing-text">සියලු සත්වයන්ට යහපත් වාසනාව ලැබේවා</p>
@@ -218,7 +205,7 @@ const App: React.FC = () => {
               </p>
               <div className="donation-section">
                 <button className="donate-btn" onClick={() => donate(3)}>
-                  දායක වන්න 
+                  දායක වන්න
                 </button>
               </div>
               <p className="blessing-text">ඔබේ කරුණා සදාකාලික ආලෝකයක් වේවා</p>
@@ -240,7 +227,7 @@ const App: React.FC = () => {
               </p>
               <div className="donation-section">
                 <button className="donate-btn" onClick={() => donate(4)}>
-                  දායක වන්න   
+                  දායක වන්න
                 </button>
               </div>
               <p className="blessing-text">ඔබේ පරිත්‍යාගය අලුත් පරපුරක් බබලවයි</p>
@@ -262,7 +249,7 @@ const App: React.FC = () => {
               </p>
               <div className="donation-section">
                 <button className="donate-btn" onClick={() => donate(5)}>
-                  දායක වන්න       
+                  දායක වන්න
                 </button>
               </div>
               <p className="blessing-text">සංඝසේවයෙන් පින් පිරි ලෝකයක්</p>
@@ -283,7 +270,7 @@ const App: React.FC = () => {
               </p>
               <div className="donation-section">
                 <button className="donate-btn" onClick={() => donate(6)}>
-                  දායක වන්න 
+                  දායක වන්න
                 </button>
               </div>
               <p className="blessing-text">මල පීසෙන ගෙවතු මගින් හදවත පිරිසිදුවේවා</p>
