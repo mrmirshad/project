@@ -10,13 +10,16 @@ interface Petal {
 
 const App: React.FC = () => {
   const donate = (projectNum: number) => {
-    const amountInput = document.getElementById(`amount${projectNum}`) as HTMLInputElement | null;
-    const amount = amountInput?.value;
+    const defaultAmounts: Record<number, number> = {
+      1: 40,
+      2: 60,
+      3: 75,
+      4: 50,
+      5: 100,
+      6: 55,
+    };
 
-    if (!amount || parseFloat(amount) <= 0) {
-      alert("කරුණාකර වලංගු දාන මුදලක් ඇතුළත් කරන්න.");
-      return;
-    }
+    const amount = defaultAmounts[projectNum];
 
     const projects: Record<number, string> = {
       1: "උමංදාව ශිෂ්‍යත්ව වැඩසටහන",
@@ -143,11 +146,8 @@ const App: React.FC = () => {
                 මෙම වැඩසටහනට ඔබටත් සහභාගී විය හැකිය.
               </p>
               <div className="donation-section">
-                <div className="donation-amount">
-                  <input type="number" id="amount1" placeholder="Enter amount ($)" min={1} defaultValue={40} />
-                </div>
                 <button className="donate-btn" onClick={() => donate(1)}>
-                  දායක වන්න
+                  දායක වන්න 
                 </button>
               </div>
               <p className="blessing-text">සතුට සහ සෞභාග්‍යය ඔබ වෙත ලැබේවා</p>
@@ -168,11 +168,8 @@ const App: React.FC = () => {
                 ඔබටත් මේ උතුම් වැඩපිළිවෙළට සහයෝගය දැක්විය හැක.
               </p>
               <div className="donation-section">
-                <div className="donation-amount">
-                  <input type="number" id="amount2" placeholder="Enter amount ($)" min={1} defaultValue={60} />
-                </div>
                 <button className="donate-btn" onClick={() => donate(2)}>
-                  දායක වන්න
+                  දායක වන්න 
                 </button>
               </div>
               <p className="blessing-text">සියලු සත්වයන්ට යහපත් වාසනාව ලැබේවා</p>
@@ -192,11 +189,8 @@ const App: React.FC = () => {
                 වවුනියාවේ ආහාර නිෂ්පාදන සහ පුහුණු වැඩසටහන් මෙහි පළමු අදියරයි.
               </p>
               <div className="donation-section">
-                <div className="donation-amount">
-                  <input type="number" id="amount3" placeholder="Enter amount ($)" min={1} defaultValue={75} />
-                </div>
                 <button className="donate-btn" onClick={() => donate(3)}>
-                  දායක වන්න
+                  දායක වන්න 
                 </button>
               </div>
               <p className="blessing-text">ඔබේ කරුණා සදාකාලික ආලෝකයක් වේවා</p>
@@ -217,11 +211,8 @@ const App: React.FC = () => {
                 ඔබටත් මේ උතුම් මෙහෙයුමට දායක විය හැක.
               </p>
               <div className="donation-section">
-                <div className="donation-amount">
-                  <input type="number" id="amount4" placeholder="Enter amount ($)" min={1} defaultValue={50} />
-                </div>
                 <button className="donate-btn" onClick={() => donate(4)}>
-                  දායක වන්න
+                  දායක වන්න   
                 </button>
               </div>
               <p className="blessing-text">ඔබේ පරිත්‍යාගය අලුත් පරපුරක් බබලවයි</p>
@@ -242,11 +233,8 @@ const App: React.FC = () => {
                 පුණ්‍ය පිරිසිදුකම ඔබේ ජීවිතයට රැඳේවා.
               </p>
               <div className="donation-section">
-                <div className="donation-amount">
-                  <input type="number" id="amount5" placeholder="Enter amount ($)" min={1} defaultValue={100} />
-                </div>
                 <button className="donate-btn" onClick={() => donate(5)}>
-                  දායක වන්න
+                  දායක වන්න       
                 </button>
               </div>
               <p className="blessing-text">සංඝසේවයෙන් පින් පිරි ලෝකයක්</p>
@@ -266,11 +254,8 @@ const App: React.FC = () => {
                 දෙන වැඩසටහනකි. පළමු අදියර ගාල්ල රිච්මන්ඩ් විද්‍යාලයෙන් ආරම්භ විය.
               </p>
               <div className="donation-section">
-                <div className="donation-amount">
-                  <input type="number" id="amount6" placeholder="Enter amount ($)" min={1} defaultValue={55} />
-                </div>
                 <button className="donate-btn" onClick={() => donate(6)}>
-                  දායක වන්න
+                  දායක වන්න 
                 </button>
               </div>
               <p className="blessing-text">මල පීසෙන ගෙවතු මගින් හදවත පිරිසිදුවේවා</p>
