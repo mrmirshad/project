@@ -1,0 +1,492 @@
+/* App.css */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Georgia', serif;
+  background: linear-gradient(135deg, #f5e6d3 0%, #e8d4b8 50%, #d4c5a9 100%);
+  color: #4a3728;
+  overflow-x: hidden;
+}
+
+.falling-petals {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 1;
+  overflow: hidden;
+}
+
+.petal {
+  position: absolute;
+  font-size: 2rem;
+  animation: fall linear infinite;
+  opacity: 0.7;
+}
+
+@keyframes fall {
+  0% {
+    top: -10%;
+    transform: rotate(0deg) scale(1);
+  }
+  50% {
+    transform: rotate(180deg) scale(0.8);
+  }
+  100% {
+    top: 110%;
+    transform: rotate(360deg) scale(0.5);
+  }
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 40px 20px;
+  position: relative;
+  z-index: 2;
+}
+
+header {
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+.temple-logo {
+  width: 120px;
+  height: 120px;
+  margin: 0 auto 20px;
+  background: #6b4423;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+  position: relative;
+}
+
+.temple-logo::before {
+  content: '☸';
+  font-size: 60px;
+  color: #f5e6d3;
+}
+
+.temple-logo::after {
+  content: '';
+  position: absolute;
+  width: 140px;
+  height: 140px;
+  border: 2px solid rgba(107, 68, 35, 0.3);
+  border-radius: 50%;
+  top: -10px;
+  left: -10px;
+}
+
+h1 {
+  font-size: 3em;
+  color: #6b4423;
+  margin-bottom: 10px;
+  font-weight: normal;
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+}
+
+.sanskrit-text {
+  font-size: 1.2em;
+  color: #8b6f47;
+  font-style: italic;
+  margin-bottom: 20px;
+}
+
+.intro-text {
+  max-width: 700px;
+  margin: 0 auto;
+  line-height: 1.8;
+  font-size: 1.1em;
+  color: #5a4a3a;
+}
+
+.divider {
+  text-align: center;
+  margin: 50px 0;
+  font-size: 2em;
+  color: #8b6f47;
+}
+
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 40px;
+  margin-bottom: 60px;
+}
+
+.project-card {
+  background: rgba(255, 252, 245, 0.9);
+  border-radius: 20px;
+  padding: 30px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+  border: 3px solid #d4c5a9;
+  position: relative;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.project-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 40px rgba(0,0,0,0.2);
+}
+
+.project-icon {
+  font-size: 4rem;
+  line-height: 1;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+.project-card h3 {
+  text-align: center;
+  margin-top: 50px;
+  margin-bottom: 15px;
+  color: #6b4423;
+  font-size: 1.8em;
+  font-weight: normal;
+}
+
+.project-desc {
+  text-align: center;
+  line-height: 1.6;
+  margin-bottom: 20px;
+  color: #5a4a3a;
+  min-height: 80px;
+}
+
+.donation-amount {
+  text-align: center;
+  margin: 25px 0;
+}
+
+.donation-amount input {
+  width: 100%;
+  padding: 15px;
+  font-size: 1.3em;
+  border: 2px solid #d4c5a9;
+  border-radius: 10px;
+  text-align: center;
+  background: white;
+  color: #6b4423;
+  font-family: 'Georgia', serif;
+}
+
+.donation-amount input:focus {
+  outline: none;
+  border-color: #8b6f47;
+}
+
+.donate-btn {
+  width: 100%;
+  padding: 15px;
+  background: linear-gradient(135deg, #8b6f47 0%, #6b4423 100%);
+  color: white;
+  border: none;
+  border-radius: 10px;
+  font-size: 1.2em;
+  cursor: pointer;
+  font-family: 'Georgia', serif;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+}
+
+.donate-btn:hover {
+  background: linear-gradient(135deg, #6b4423 0%, #5a3a1f 100%);
+  transform: scale(1.02);
+  box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+}
+
+.blessing-text {
+  text-align: center;
+  margin-top: 10px;
+  font-size: 0.9em;
+  color: #8b6f47;
+  font-style: italic;
+}
+
+footer {
+  text-align: center;
+  padding: 40px 20px;
+  background: rgba(107, 68, 35, 0.1);
+  border-radius: 20px;
+  margin-top: 60px;
+}
+
+footer p {
+  color: #6b4423;
+  line-height: 1.8;
+  margin-bottom: 10px;
+}
+
+.contact-info {
+  margin-top: 20px;
+  font-size: 1.1em;
+  color: #8b6f47;
+}
+
+.about-section {
+  margin: 60px 0;
+  padding: 40px 20px;
+  background: rgba(255, 252, 245, 0.8);
+  border-radius: 20px;
+  border: 2px solid #d4c5a9;
+}
+
+.about-content {
+  display: grid;
+  grid-template-columns: 250px 1fr;
+  gap: 40px;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.about-text {
+  color: #5a4a3a;
+  position: relative;
+}
+
+.about-text::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: url('/buddha.png');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  opacity: 0.1;
+  z-index: 0;
+}
+
+.about-text h2,
+.about-text p {
+  position: relative;
+  z-index: 1;
+}
+
+.about-text h2 {
+  font-size: 2.5em;
+  color: #6b4423;
+  margin-bottom: 20px;
+  font-weight: normal;
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+}
+
+.about-text p {
+  line-height: 1.8;
+  margin-bottom: 20px;
+  font-size: 1.1em;
+}
+
+.about-image img {
+  width: 250px;
+  height: auto;
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+  border: 3px solid #d4c5a9;
+}
+
+.image-controls {
+  margin-top: 20px;
+  text-align: center;
+}
+
+.image-controls label {
+  display: block;
+  margin-bottom: 10px;
+  color: #6b4423;
+  font-weight: bold;
+}
+
+.image-controls input[type="range"] {
+  width: 200px;
+  height: 6px;
+  border-radius: 5px;
+  background: #d4c5a9;
+  outline: none;
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+.image-controls input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: #8b6f47;
+  cursor: pointer;
+}
+
+.image-controls input[type="range"]::-moz-range-thumb {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: #8b6f47;
+  cursor: pointer;
+  border: none;
+}
+
+footer {
+  text-align: center;
+  padding: 40px 20px;
+  background: rgba(107, 68, 35, 0.1);
+  border-radius: 20px;
+  margin-top: 60px;
+}
+
+footer p {
+  color: #6b4423;
+  line-height: 1.8;
+  margin-bottom: 10px;
+}
+
+.contact-info {
+  margin-top: 20px;
+  font-size: 1.1em;
+  color: #8b6f47;
+}
+
+.lotus-decoration {
+  text-align: center;
+  font-size: 2.5em;
+  margin: 30px 0;
+  color: #8b6f47;
+  opacity: 0.6;
+}
+
+.projects-section {
+  padding: 60px 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.project-card {
+  display: flex;
+  background: rgba(255, 252, 245, 0.25);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-radius: 20px;
+  padding: 30px;
+  margin-bottom: 40px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+  border: 1px solid rgba(212, 197, 169, 0.3);
+  gap: 30px;
+  align-items: flex-start;
+}
+
+.project-image {
+  flex: 0 0 300px;
+}
+
+.project-image img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 15px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+  border: 2px solid #d4c5a9;
+}
+
+.project-content {
+  flex: 1;
+}
+
+.project-card h3 {
+  font-size: 2rem;
+  color: #6b4423;
+  margin-bottom: 15px;
+  font-weight: normal;
+}
+
+.project-desc {
+  font-size: 1.1rem;
+  color: #5a4a3a;
+  line-height: 1.6;
+  margin-bottom: 20px;
+}
+
+.donation-section {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.donation-amount {
+  flex: 0 0 200px;
+}
+
+.donation-amount input {
+  width: 100%;
+  padding: 12px;
+  border: 2px solid #d4c5a9;
+  border-radius: 8px;
+  font-size: 1rem;
+  text-align: center;
+  background: white;
+  color: #6b4423;
+}
+
+.donation-amount input:focus {
+  outline: none;
+  border-color: #8b6f47;
+}
+
+.donate-btn {
+  padding: 12px 25px;
+  background: linear-gradient(135deg, #8b6f47 0%, #6b4423 100%);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+}
+
+.donate-btn:hover {
+  background: linear-gradient(135deg, #6b4423 0%, #5a3a1f 100%);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+}
+
+.blessing-text {
+  font-style: italic;
+  color: #8b6f47;
+  font-size: 0.95rem;
+  margin-top: 10px;
+}
+
+@media (max-width: 768px) {
+  .project-card {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .project-image {
+    flex: none;
+    align-self: center;
+  }
+
+  .donation-section {
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .donation-amount {
+    flex: none;
+  }
+}
