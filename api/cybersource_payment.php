@@ -40,6 +40,17 @@ if ($_SERVER['REQUEST_METHOD'] == "GET") {
 
 if ($_SERVER['REQUEST_METHOD'] == "POST") {
 
+    // Debug: Check if required POST parameters exist
+    $required_params = ['order_amount', 'customer_receipt_email', 'customer_mobile', 'customer_first_name', 'customer_last_name'];
+    foreach ($required_params as $param) {
+        if (!isset($_POST[$param])) {
+            error_log("Missing required parameter: $param");
+            http_response_code(400);
+            echo "Error: Missing parameter $param";
+            exit;
+        }
+    }
+
     // Debug: Log request data
     error_log("POST data received: " . print_r($_POST, true));
     error_log("Request method: " . $_SERVER['REQUEST_METHOD']);
@@ -58,12 +69,14 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
     $order_currency = 'LKR';
     $customer_receipt_email = $_POST["customer_receipt_email"];
     $customer_mobile = $_POST["customer_mobile"];
+    $customer_first_name = $_POST["customer_first_name"];
+    $customer_last_name = $_POST["customer_last_name"];
 
     error_log("Order amount: $order_amount, Email: $customer_receipt_email, Mobile: $customer_mobile");
 
     // Fetching logged-in user details (replace with your actual user data fetching logic)
-    $first_name = 'Donor';  // Generic first name for donation
-    $last_name = 'User';    // Generic last name for donation
+    $first_name = $customer_first_name;  // Use provided first name
+    $last_name = $customer_last_name;    // Use provided last name
     $email = $customer_receipt_email;  // Use the provided email
 
     // CyberSource Payment Gateway Credentials
@@ -104,7 +117,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
         "bill_to_address_line2" => "Maradana Road",
         "bill_to_address_state" => "Western",
         "bill_to_address_country" => "LK",
-        "bill_to_company_name" => "Food City",
+        "bill_to_company_name" => "umandawa",
         "bill_to_address_postal_code" => "01000"
     );
 

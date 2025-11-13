@@ -9,10 +9,12 @@ interface CyberSourcePaymentPageProps {
     amount: number;
     email: string;
     mobile: string;
+    firstName: string;
+    lastName: string;
     onBack?: () => void;
 }
 
-const CyberSourcePaymentPage = ({ amount, email, mobile, onBack }: CyberSourcePaymentPageProps) => {
+const CyberSourcePaymentPage = ({ amount, email, mobile, firstName, lastName, onBack }: CyberSourcePaymentPageProps) => {
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState<string | null>(null);
     const [paymentData, setPaymentData] = useState<PaymentData | null>(null);
@@ -20,7 +22,7 @@ const CyberSourcePaymentPage = ({ amount, email, mobile, onBack }: CyberSourcePa
     useEffect(() => {
         // Fetch payment data from PHP backend
         fetchPaymentData();
-    }, [amount, email, mobile]);
+    }, [amount, email, mobile, firstName, lastName]);
 
     const fetchPaymentData = async () => {
         try {
@@ -35,6 +37,8 @@ const CyberSourcePaymentPage = ({ amount, email, mobile, onBack }: CyberSourcePa
                     country: 'LKR', // or 'USD'
                     customer_receipt_email: email, // Use dynamic email
                     customer_mobile: mobile, // Use dynamic mobile
+                    customer_first_name: firstName, // Use dynamic first name
+                    customer_last_name: lastName, // Use dynamic last name
                 })
             });
 

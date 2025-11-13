@@ -85,6 +85,9 @@ const App: React.FC = () => {
   const [mobile, setMobile] = useState('');
   const [email, setEmail] = useState('');
 
+  const [firstName, setFirstName] = useState('');
+  const [lastName, setLastName] = useState('');
+
   const [showCyberSource, setShowCyberSource] = useState(false);
 
   const donate = async (projectId: number) => {
@@ -98,12 +101,26 @@ const App: React.FC = () => {
     const amountInput = document.getElementById(`amount-${projectId}`) as HTMLInputElement | null;
     const mobileInput = document.getElementById(`mobile-${projectId}`) as HTMLInputElement | null;
     const emailInput = document.getElementById(`email-${projectId}`) as HTMLInputElement | null;
+    const firstNameInput = document.getElementById(`firstName-${projectId}`) as HTMLInputElement | null;
+    const lastNameInput = document.getElementById(`lastName-${projectId}`) as HTMLInputElement | null;
 
     const rawAmount = amountInput?.value || project.defaultAmount.toString();
     const parsedAmount = parseFloat(rawAmount);
 
     if (!Number.isFinite(parsedAmount) || parsedAmount <= 0) {
       alert("කරුණාකර වලංගු දාන මුදලක් ඇතුළත් කරන්න.");
+      return;
+    }
+
+    const firstName = firstNameInput?.value?.trim();
+    if (!firstName) {
+      alert("කරුණාකර ඔබේ පළමු නම ඇතුළත් කරන්න.");
+      return;
+    }
+
+    const lastName = lastNameInput?.value?.trim();
+    if (!lastName) {
+      alert("කරුණාකර ඔබේ අවසාන නම ඇතුළත් කරන්න.");
       return;
     }
 
@@ -128,6 +145,9 @@ const App: React.FC = () => {
     setSelectedAmount(parsedAmount);
     setMobile(mobileValue);
     setEmail(emailValue);
+    setFirstName(firstName);
+    setLastName(lastName);
+    // Store additional data for CyberSource
     setShowCyberSource(true);
   };
 
@@ -190,7 +210,7 @@ const App: React.FC = () => {
   }, []);
 
   if (showCyberSource) {
-    return <CyberSourcePaymentPage amount={selectedAmount || 0} email={email} mobile={mobile} onBack={() => setShowCyberSource(false)} />;
+    return <CyberSourcePaymentPage amount={selectedAmount || 0} email={email} mobile={mobile} firstName={firstName} lastName={lastName} onBack={() => setShowCyberSource(false)} />;
   }
 
   return (
@@ -300,6 +320,14 @@ const App: React.FC = () => {
                     <div className="project-content">
                       <h3>{project.title}</h3>
                       <p className="project-desc">{project.description}</p>
+                      <div className="w-full flex gap-5">
+                        <div className="w-full">
+                          <input type="text" id={`firstName-${project.id}`} placeholder="First Name" className="w-full p-2 rounded-md" />
+                        </div>
+                        <div className="w-full">
+                          <input type="text" id={`lastName-${project.id}`} placeholder="Last Name" className="w-full p-2 rounded-md" />
+                        </div>
+                      </div>
                       <div className="w-full flex gap-5">
                         <div className="w-full">
                           <input type="text" id={`mobile-${project.id}`} placeholder="Mobile" className="w-full p-2 rounded-md" />
