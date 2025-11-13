@@ -25,7 +25,7 @@ const projectData: Project[] = [
       "අධ්‍යාපනය සඳහා දක්ෂතා දක්වන නමුත් ආර්ථික අපහසුතා පවතින සිසු දරුවන් සඳහා උමංදාව මඟින් සෑම මසකම ශිෂ්‍යත්වයක් ලබා දේ. මෙම වැඩසටහනට ඔබටත් සහභාගී විය හැකිය.",
     blessing: "සතුට සහ සෞභාග්‍යය ඔබ වෙත ලැබේවා",
     defaultAmount: 5000,
-    images: ["/p1_img1.jpg","/p1_img2.jpg","/p1_img3.jpg","/p1_img4.jpg","/p1_img5.jpg","/p1_img6.jpg"],
+    images: ["/p1_img1.jpg", "/p1_img2.jpg", "/p1_img3.jpg", "/p1_img4.jpg", "/p1_img5.jpg", "/p1_img6.jpg"],
   },
   {
     id: 2,
@@ -34,7 +34,7 @@ const projectData: Project[] = [
       "උමංදාව මඟින් වන අලින්ගේ ජීවිතය සහ පරිසරය ආරක්ෂා කිරීමේ අරමුණින් හබරණ Eco Park හි වැවක් පිළිසකර කරමින් අලින්ගේ පානිය ජල අවශ්‍යතා සපුරාලන ව්‍යාපෘතියක් ක්‍රියාත්මක කර ඇත. ඔබටත් මේ උතුම් වැඩපිළිවෙළට සහයෝගය දැක්විය හැක.",
     blessing: "සියලු සත්වයන්ට යහපත් වාසනාව ලැබේවා",
     defaultAmount: 5000,
-    images: ["/p2_img1.jpg","/p2_img2.jpg","/p2_img3.jpg","/p2_img4.jpg","/p2_img5.jpg"],
+    images: ["/p2_img1.jpg", "/p2_img2.jpg", "/p2_img3.jpg", "/p2_img4.jpg", "/p2_img5.jpg"],
   },
   {
     id: 3,
@@ -43,7 +43,7 @@ const projectData: Project[] = [
       "දුෂ්කර ගම්මානවල ජනතාවට ආර්ථික අභියෝග ජය ගැනීම සඳහා උමංදාව නව ව්‍යවසායකයන් සූදානම් කරන වැඩසටහනක් ආරම්භ කර ඇත. වවුනියාවේ ආහාර නිෂ්පාදන සහ පුහුණු වැඩසටහන් මෙහි පළමු අදියරයි.",
     blessing: "ඔබේ කරුණා සදාකාලික ආලෝකයක් වේවා",
     defaultAmount: 5000,
-    images: ["/p3_img1.jpg","/p3_img2.jpg","/p3_img3.jpg","/p3_img4.jpg","/p3_img5.jpg"],
+    images: ["/p3_img1.jpg", "/p3_img2.jpg", "/p3_img3.jpg", "/p3_img4.jpg", "/p3_img5.jpg"],
   },
   {
     id: 4,
@@ -52,7 +52,7 @@ const projectData: Project[] = [
       "පහසුකම් අඩු පාසල්වල ක්‍රිකට් ක්‍රීඩාවේ දියුණුව සඳහා උමංදාව මඟින් උපකරණ සහ පුහුණුව ලබා දෙන විශේෂ වැඩසටහනක් ක්‍රියාත්මක වේ. ඔබටත් මේ උතුම් මෙහෙයුමට දායක විය හැක.",
     blessing: "ඔබේ පරිත්‍යාගය අලුත් පරපුරක් බබලවයි",
     defaultAmount: 5000,
-    images: ["/p4_img1.jpg","/p4_img2.jpg","/p4_img3.jpg","/p4_img4.jpg","/p4_img5.jpg","/p4_img6.jpg"],
+    images: ["/p4_img1.jpg", "/p4_img2.jpg", "/p4_img3.jpg", "/p4_img4.jpg", "/p4_img5.jpg", "/p4_img6.jpg"],
   },
   {
     id: 5,
@@ -61,7 +61,7 @@ const projectData: Project[] = [
       "උමංදාව බෞද්ධ විශ්ව ගම්මානයේ භික්ෂු භික්ෂුණී ආර්‍ය මහා සංඝයා සඳහා දානය පූජා කිරීමේ උතුම් අවස්ථාවක් ඔබටද හිමි වේ. පුණ්‍ය පිරිසිදුකම ඔබේ ජීවිතයට රැඳේවා.",
     blessing: "සංඝසේවයෙන් පින් පිරි ලෝකයක්",
     defaultAmount: 5000,
-    images: ["/p5_img1.jpg","/p5_img2.jpg","/p5_img3.jpg","/p5_img4.jpg","/p5_img5.jpg"],
+    images: ["/p5_img1.jpg", "/p5_img2.jpg", "/p5_img3.jpg", "/p5_img4.jpg", "/p5_img5.jpg"],
   },
   {
     id: 6,
@@ -70,7 +70,7 @@ const projectData: Project[] = [
       "උමංදාව මඟින් ක්‍රියාත්මක කරන කෘෂිකර්ම විප්ලවය පාසල්වලටද ව්‍යාප්ත කරමින් සිසු සිසුවියන්ට ගෙවතු වගාව පිළිබඳ දැනුම ලබා දෙන වැඩසටහනකි. පළමු අදියර ගාල්ල රිච්මන්ඩ් විද්‍යාලයෙන් ආරම්භ විය.",
     blessing: "මල පීසෙන ගෙවතු මගින් හදවත පිරිසිදුවේවා",
     defaultAmount: 5000,
-    images: ["/p6_img1.jpg","/p6_img2.jpg","/p6_img3.jpg","/p6_img4.jpg"],
+    images: ["/p6_img1.jpg", "/p6_img2.jpg", "/p6_img3.jpg", "/p6_img4.jpg"],
   },
 ];
 
@@ -88,33 +88,38 @@ const App: React.FC = () => {
 
     const amountInput = document.getElementById(`amount-${projectId}`) as HTMLInputElement | null;
     const rawAmount = amountInput?.value || project.defaultAmount.toString();
+    const parsedAmount = parseFloat(rawAmount);
 
-    if (!rawAmount || parseFloat(rawAmount) <= 0) {
+    if (!Number.isFinite(parsedAmount) || parsedAmount <= 0) {
       alert("කරුණාකර වලංගු දාන මුදලක් ඇතුළත් කරන්න.");
       return;
     }
 
-    const res = await fetch('https://umandawa-backend.onrender.com/api/donation/donate', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({
-        amount: parseFloat(rawAmount.toString()).toFixed(2),
-        currency: "LKR"
 
-      }),
-    });
+    try {
+      const response = await fetch("https://umandawa-backend.onrender.com/api/donation/donate", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          amount: parsedAmount.toFixed(2),
+          currency: "LKR",
+        })
+      });
 
-    const html = await res.text();
-    document.open();
-    document.write(html);
-    document.close();
+      if (!response.ok) {
+        throw new Error(`Donation request failed with status ${response.status}`);
+      }
 
-    // const projectName = projects[projectNum];
-    // alert(
-    //   `${projectName} සඳහා ඔබගේ $${amount} ඉතා උදාර දානය වෙනුවෙන් ස්තුතියි!\n\nමේ ආපු පින් ඔබට නිවන් සුව දෙත්වා.\n\nඔබව ගෙවීම් පිටුවට යොමු කරනු ලැබේ.`
-    // );
+      const html = await response.text();
 
-    // console.log(`දානය: $${amount} ව්‍යාපෘතිය ${projectNum}: ${projectName}`);
+      document.open();
+      document.write(html);
+      document.close();
+
+    } catch (error) {
+      console.error("Donation request failed", error);
+      alert("දානය සම්පූර්ණ කිරීම අතරතුර දෝෂයක් සිදු විය. කරුණාකර නැවත උත්සාහ කරන්න.");
+    }
   };
 
   useEffect(() => {
@@ -241,7 +246,7 @@ const App: React.FC = () => {
             return (
               <div key={project.id} className="project-card h-full flex justify-center items-center">
                 <div className="project-image h-full">
-                  <img src={currentImage} alt={project.title}className="w-full h-full" />
+                  <img src={currentImage} alt={project.title} className="w-full h-full" />
                 </div>
                 <div className="project-content">
                   <h3>{project.title}</h3>
@@ -283,10 +288,10 @@ const App: React.FC = () => {
             <p>📧 info@umandawa.com</p>
             <p>🌐 www.umandawa.com</p>
             <p>📍 Umandawa Maha Vihara Ashramya,<br />
-               9th post, Alipallama,<br />
-               Madahapola, Kurunagala,<br />
-               Sri Lanka.</p>
-            <p>© 2025 Umandawa. Powered By Ceylon Innovation</p>
+              9th post, Alipallama,<br />
+              Madahapola, Kurunagala,<br />
+              Sri Lanka.</p>
+            <p>© 2025 Umandawa. Developed By Ceylon Innovation</p>
           </div>
         </footer>
       </div>
