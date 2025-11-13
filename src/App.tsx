@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import "./App.css";
 import AppEn from "./App_en";
-import DirectPayPage from "./components/DirectPayPage";
+import CyberSourcePaymentPage from "./components/CyberSourcePaymentPage";
 
 interface Project {
   id: number;
@@ -80,39 +80,12 @@ const App: React.FC = () => {
   const [showEnglish, setShowEnglish] = useState(false);
   const [petals, setPetals] = useState<Petal[]>([]);
   const [slideIndexes, setSlideIndexes] = useState<number[]>(() => projectData.map(() => 0));
-  const [showDirectPay, setShowDirectPay] = useState(false);
   const [selectedAmount, setSelectedAmount] = useState<number | null>(null);
 
   const [mobile, setMobile] = useState('');
   const [email, setEmail] = useState('');
 
-  const startDirectPay = (amount: number, mobile: string, email: string) => {
-    if (!Number.isFinite(amount) || amount <= 0) {
-      alert("කරුණාකර වලංගු දාන මුදලක් ඇතුළත් කරන්න.");
-      return;
-    }
-
-    if(!mobile){
-      alert("කරුණාකර රට කේතය සමඟ වලංගු ජංගම දුරකථන අංකයක් ඇතුළත් කරන්න.");
-      return;
-    }
-
-    if (mobile.charAt(0) == '0') {
-      alert("කරුණාකර රට කේතය සමඟ වලංගු ජංගම දුරකථන අංකයක් ඇතුළත් කරන්න.");
-      return;
-    }
-
-    if (!email.includes("@")) {
-      alert("කරුණාකර වලංගු විද්‍යුත් තැපැල් ලිපිනයක් ඇතුළත් කරන්න.");
-      return;
-    }
-
-
-    setSelectedAmount(amount);
-    setShowDirectPay(true);
-    setMobile(mobile);
-    setEmail(email);
-  };
+  const [showCyberSource, setShowCyberSource] = useState(false);
 
   const donate = async (projectId: number) => {
     const project = projectData.find((item: Project) => item.id === projectId);
@@ -129,7 +102,33 @@ const App: React.FC = () => {
     const rawAmount = amountInput?.value || project.defaultAmount.toString();
     const parsedAmount = parseFloat(rawAmount);
 
-    startDirectPay(parsedAmount, mobileInput?.value || '', emailInput?.value || '');
+    if (!Number.isFinite(parsedAmount) || parsedAmount <= 0) {
+      alert("කරුණාකර වලංගු දාන මුදලක් ඇතුළත් කරන්න.");
+      return;
+    }
+
+    const mobileValue = mobileInput?.value || '';
+    if(!mobileValue){
+      alert("කරුණාකර රට කේතය සමඟ වලංගු ජංගම දුරකථන අංකයක් ඇතුළත් කරන්න.");
+      return;
+    }
+
+    if (mobileValue.charAt(0) == '0') {
+      alert("කරුණාකර රට කේතය සමඟ වලංගු ජංගම දුරකථන අංකයක් ඇතුළත් කරන්න.");
+      return;
+    }
+
+    const emailValue = emailInput?.value || '';
+    if (!emailValue.includes("@")) {
+      alert("කරුණාකර වලංගු විද්‍යුත් තැපැල් ලිපිනයක් ඇතුළත් කරන්න.");
+      return;
+    }
+
+    // Instead of starting DirectPay, set up for CyberSource
+    setSelectedAmount(parsedAmount);
+    setMobile(mobileValue);
+    setEmail(emailValue);
+    setShowCyberSource(true);
   };
 
   useEffect(() => {
@@ -190,18 +189,8 @@ const App: React.FC = () => {
     setPetals(newPetals);
   }, []);
 
-  if (showDirectPay && selectedAmount !== null) {
-    return (
-      <DirectPayPage
-        amount={selectedAmount}
-        mobile={mobile}
-        email={email}
-        onBack={() => {
-          setShowDirectPay(false);
-          setSelectedAmount(null);
-        }}
-      />
-    );
+  if (showCyberSource) {
+    return <CyberSourcePaymentPage amount={selectedAmount || 0} email={email} mobile={mobile} onBack={() => setShowCyberSource(false)} />;
   }
 
   return (
@@ -243,6 +232,23 @@ const App: React.FC = () => {
                   }}
                 >
                   English
+                </button>
+                <button
+                  className="cybersource-btn"
+                  onClick={() => setShowCyberSource(true)}
+                  style={{
+                    position: 'absolute',
+                    top: '20px',
+                    right: '120px',
+                    background: 'rgba(255, 255, 255, 0.8)',
+                    border: 'none',
+                    padding: '5px 10px',
+                    borderRadius: '5px',
+                    cursor: 'pointer',
+                    fontSize: '14px'
+                  }}
+                >
+                  CyberSource Payment
                 </button>
                 <h1 className="hero-title">උමංදාව සහයෝගය</h1>
                 <p className="hero-subtitle">මනුෂ්‍යත්වය පිබිදීම • කරුණාව රැකගැනීම • සාමකාමී අනාගතයක් ගොඩනැගීම</p>
