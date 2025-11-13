@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import "./App.css";
+import AppEn from "./App_en";
 
 interface Project {
   id: number;
@@ -75,11 +76,12 @@ const projectData: Project[] = [
 ];
 
 const App: React.FC = () => {
+  const [showEnglish, setShowEnglish] = useState(false);
   const [petals, setPetals] = useState<Petal[]>([]);
   const [slideIndexes, setSlideIndexes] = useState<number[]>(() => projectData.map(() => 0));
 
   const donate = async (projectId: number) => {
-    const project = projectData.find((item) => item.id === projectId);
+    const project = projectData.find((item: Project) => item.id === projectId);
 
     if (!project) {
       console.error(`Project with id ${projectId} not found.`);
@@ -147,7 +149,7 @@ const App: React.FC = () => {
   }, []);
 
   useEffect(() => {
-    const intervals = projectData.map((project, index) => {
+    const intervals = projectData.map((project: Project, index: number) => {
       if (project.images.length <= 1) {
         return null;
       }
@@ -162,7 +164,7 @@ const App: React.FC = () => {
     });
 
     return () => {
-      intervals.forEach((intervalId) => {
+      intervals.forEach((intervalId: number | null) => {
         if (intervalId) {
           window.clearInterval(intervalId);
         }
@@ -182,25 +184,44 @@ const App: React.FC = () => {
 
   return (
     <>
-      <div className="decorative-pattern"></div>
-      <div className="falling-petals">
-        {petals.map((petal) => (
-          <div key={petal.id} className="petal" style={{
-            left: petal.left,
-            animationDelay: petal.animationDelay,
-            animationDuration: petal.animationDuration
-          }}>
-            🪻
+      {showEnglish ? <AppEn onSwitchToSinhala={() => setShowEnglish(false)} /> : (
+        <>
+          <div className="decorative-pattern"></div>
+          <div className="falling-petals">
+            {petals.map((petal) => (
+              <div key={petal.id} className="petal" style={{
+                left: petal.left,
+                animationDelay: petal.animationDelay,
+                animationDuration: petal.animationDuration
+              }}>
+                🪻
+              </div>
+            ))}
           </div>
-        ))}
-      </div>
 
-      <div className="container">
+          <div className="container">
         <header className="hero">
           <div className="hero-overlay"></div>
 
           <div className="hero-content">
             <img src="/logo.jpg" alt="උමංදාව ලාංඡනය" className="temple-logo" />
+            <button 
+              className="language-btn" 
+              onClick={() => setShowEnglish(true)}
+              style={{
+                position: 'absolute',
+                top: '20px',
+                right: '20px',
+                background: 'rgba(255, 255, 255, 0.8)',
+                border: 'none',
+                padding: '5px 10px',
+                borderRadius: '5px',
+                cursor: 'pointer',
+                fontSize: '14px'
+              }}
+            >
+              English
+            </button>
             <h1 className="hero-title">උමංදාව සහයෝගය</h1>
             <p className="hero-subtitle">මනුෂ්‍යත්වය පිබිදීම • කරුණාව රැකගැනීම • සාමකාමී අනාගතයක් ගොඩනැගීම</p>
 
@@ -228,7 +249,7 @@ const App: React.FC = () => {
                 දෛනික ජීවිතයේ සිහිය සහ මෛත්‍රී බව දිරිමත් කරයි. ඔහුගේ දැක්ම විහාරස්ථාන බිත්ති ඉක්මවා විහිදේ — බුද්ධ මාර්ගයේ නිත්‍ය සත්‍යය වෙත හදවත් පිබිදීම.
               </p>
               <p>
-                ඔබේ කාරුණික සහයෝගයෙන්, ස්වාමීන් වහන්සේගේ කරුණාව සහ ප්‍රඥාවේ මෙහෙවර දිගටම වර්ධනය වේ.
+                ඔබේ කාරුණික සහයෝගයෙන්, ස්වාමීන් වහන්සේගේ කරුණා සහ ප්‍රඥාවේ මෙහෙවර දිගටම වර්ධනය වේ.
                 ඔබ කරන සෑම පූජාවක්ම පින් බීජයක් බවට පත්වේ, ධර්මයේ ආලෝකය පැතිරවීමට,
                 ප්‍රජාවන් උසස් කිරීමට සහ පරම්පරා ගණනාවකට සාමයේ අඩිතාලමක් ගොඩනැගීමට ඔහුගේ උත්සාහයන් පවත්වාගෙන යනවා.
               </p>
@@ -239,7 +260,7 @@ const App: React.FC = () => {
 
 
         <div className="projects-section" id="projects">
-          {projectData.map((project, index) => {
+          {projectData.map((project: Project, index: number) => {
             const currentImageIndex = slideIndexes[index] ?? 0;
             const currentImage = project.images[currentImageIndex] || project.images[0];
 
@@ -295,6 +316,8 @@ const App: React.FC = () => {
           </div>
         </footer>
       </div>
+      </>
+      )}
     </>
   );
 };
