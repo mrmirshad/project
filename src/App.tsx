@@ -1,8 +1,6 @@
 import React, { useEffect, useState } from "react";
 import "./App.css";
 import CyberSourcePaymentPage from "./components/CyberSourcePaymentPage";
-import PaymentSuccess from "./components/PaymentSuccess";
-import PaymentFailed from "./components/PaymentFailed";
 import { Routes, Route } from "react-router-dom";
 
 interface Project {
@@ -79,7 +77,6 @@ const projectData: Project[] = [
 ];
 
 const App: React.FC = () => {
-  const [showEnglish, setShowEnglish] = useState(false);
   const [petals, setPetals] = useState<Petal[]>([]);
   const [slideIndexes, setSlideIndexes] = useState<number[]>(() => projectData.map(() => 0));
   const [selectedAmount, setSelectedAmount] = useState<number | null>(null);
@@ -237,40 +234,6 @@ const App: React.FC = () => {
 
                   <div className="hero-content">
                     <img src="/logo.jpg" alt="උමංදාව ලාංඡනය" className="temple-logo" />
-                    <button
-                      className="language-btn"
-                      onClick={() => setShowEnglish(true)}
-                      style={{
-                        position: 'absolute',
-                        top: '20px',
-                        right: '20px',
-                        background: 'rgba(255, 255, 255, 0.8)',
-                        border: 'none',
-                        padding: '5px 10px',
-                        borderRadius: '5px',
-                        cursor: 'pointer',
-                        fontSize: '14px'
-                      }}
-                    >
-                      English
-                    </button>
-                    <button
-                      className="cybersource-btn"
-                      onClick={() => setShowCyberSource(true)}
-                      style={{
-                        position: 'absolute',
-                        top: '20px',
-                        right: '120px',
-                        background: 'rgba(255, 255, 255, 0.8)',
-                        border: 'none',
-                        padding: '5px 10px',
-                        borderRadius: '5px',
-                        cursor: 'pointer',
-                        fontSize: '14px'
-                      }}
-                    >
-                      CyberSource Payment
-                    </button>
                     <h1 className="hero-title">උමංදාව සහයෝගය</h1>
                     <p className="hero-subtitle">මනුෂ්‍යත්වය පිබිදීම • කරුණාව රැකගැනීම • සාමකාමී අනාගතයක් ගොඩනැගීම</p>
 
@@ -321,36 +284,32 @@ const App: React.FC = () => {
                         <div className="project-content">
                           <h3>{project.title}</h3>
                           <p className="project-desc">{project.description}</p>
-                          <div className="w-full flex gap-5">
-                            <div className="w-full">
-                              <input type="text" id={`firstName-${project.id}`} placeholder="First Name" className="w-full p-2 rounded-md" />
-                            </div>
-                            <div className="w-full">
-                              <input type="text" id={`lastName-${project.id}`} placeholder="Last Name" className="w-full p-2 rounded-md" />
-                            </div>
+
+                          {/* User Details Section */}
+                          <div className="user-details-grid">
+                            <input type="text" id={`firstName-${project.id}`} placeholder="First Name" className="input-box" />
+                            <input type="text" id={`lastName-${project.id}`} placeholder="Last Name" className="input-box" />
+
+                            <input type="text" id={`mobile-${project.id}`} placeholder="Mobile (With Country Code)" className="input-box" />
+                            <input type="email" id={`email-${project.id}`} placeholder="Email Address" className="input-box" />
                           </div>
-                          <div className="w-full flex gap-5">
-                            <div className="w-full">
-                              <input type="text" id={`mobile-${project.id}`} placeholder="Mobile" className="w-full p-2 rounded-md" />
-                            </div>
-                            <div className="w-full">
-                              <input type="text" id={`email-${project.id}`} placeholder="Email" className="w-full p-2 rounded-md" />
-                            </div>
-                          </div>
+
+                          {/* Donation input */}
                           <div className="donation-section">
-                            <div className="donation-amount">
-                              <input
-                                type="number"
-                                id={`amount-${project.id}`}
-                                placeholder="Enter amount ($)"
-                                min={1}
-                                defaultValue={project.defaultAmount}
-                              />
-                            </div>
+                            <input
+                              type="number"
+                              id={`amount-${project.id}`}
+                              placeholder="Enter amount (LKR)"
+                              min={1}
+                              defaultValue={project.defaultAmount}
+                              className="input-box"
+                            />
+
                             <button className="donate-btn" onClick={() => donate(project.id)}>
                               දායක වන්න
                             </button>
                           </div>
+
                           <p className="blessing-text">{project.blessing}</p>
                         </div>
                       </div>
@@ -385,8 +344,6 @@ const App: React.FC = () => {
           
         </>
       } />
-      <Route path="/payment-success" element={<PaymentSuccess />} />
-      <Route path="/payment-failed" element={<PaymentFailed />} />
     </Routes>
   );
 };
