@@ -85,7 +85,6 @@ const projectData: Project[] = [
 
 const App: React.FC = () => {
   const navigate = useNavigate();
-
   const [petals, setPetals] = useState<Petal[]>([]);
   const [slideIndexes, setSlideIndexes] = useState<number[]>(() => projectData.map(() => 0));
   const [selectedAmount, setSelectedAmount] = useState<number | null>(null);
@@ -282,93 +281,119 @@ const App: React.FC = () => {
       id: i,
       left: `${Math.random() * 100}%`,
       animationDelay: `${Math.random() * 10}s`,
-      animationDuration: `${5 + Math.random() * 10}s`
+      animationDuration: `${5 + Math.random() * 10}s`,
     }));
     setPetals(newPetals);
   }, []);
 
   return (
     <>
-      {showCyberSource ? <CyberSourcePaymentPage amount={selectedAmount || 0} email={email} mobile={mobile} firstName={firstName} lastName={lastName} onBack={() => setShowCyberSource(false)} /> : (
-
+      {showCyberSource ? (
+        <CyberSourcePaymentPage
+          amount={selectedAmount || 0}
+          email={email}
+          mobile={mobile}
+          firstName={firstName}
+          lastName={lastName}
+          onBack={() => setShowCyberSource(false)}
+        />
+      ) : (
         <>
           <div className="decorative-pattern"></div>
           <div className="falling-petals">
             {petals.map((petal) => (
-              <div key={petal.id} className="petal" style={{
-                left: petal.left,
-                animationDelay: petal.animationDelay,
-                animationDuration: petal.animationDuration
-              }}>
+              <div
+                key={petal.id}
+                className="petal"
+                style={{
+                  left: petal.left,
+                  animationDelay: petal.animationDelay,
+                  animationDuration: petal.animationDuration,
+                }}
+              >
                 🪻
               </div>
             ))}
           </div>
 
-          <header className="hero">
-            <div className="hero-overlay"></div>
+          <div className="container">
+            <header className="hero">
+              <div className="hero-overlay"></div>
 
-            <div className="hero-content">
-              <img src="/logo.jpg" alt="Umandawa Logo" className="temple-logo" />
-              <button
-                className="language-btn"
-                onClick={() => {
-                  if (typeof window !== 'undefined') {
-                    window.localStorage.setItem('lang', 'si');
-                  }
-                  navigate("/");
-                }}
-                style={{
-                  position: 'absolute',
-                  top: '20px',
-                  right: '20px',
-                  background: 'linear-gradient(135deg, #8b6f47 0%, #6b4423 100%)',
-                  color: '#ffffff',
-                  border: 'none',
-                  padding: '5px 10px',
-                  borderRadius: '5px',
-                  cursor: 'pointer',
-                  fontSize: '14px'
-                }}
-              >
-                සිංහල
-              </button>
+              <div className="hero-content">
+                <img src="/logo.jpg" alt="Umandawa Logo" className="temple-logo" />
+                <button
+                  className="language-btn"
+                  onClick={() => {
+                    if (typeof window !== "undefined") {
+                      window.localStorage.setItem("lang", "si");
+                    }
+                    navigate("/");
+                  }}
+                  style={{
+                    position: "absolute",
+                    top: "20px",
+                    right: "20px",
+                    background: "linear-gradient(135deg, #8b6f47 0%, #6b4423 100%)",
+                    color: "#ffffff",
+                    border: "none",
+                    padding: "5px 10px",
+                    borderRadius: "5px",
+                    cursor: "pointer",
+                    fontSize: "14px",
+                  }}
+                >
+                  සිංහල
+                </button>
 
-              <h1 className="hero-title">Umandawa Support</h1>
-              <p className="hero-subtitle">Awakening Humanity • Preserving Compassion • Building a Peaceful Future</p>
+                <h1 className="hero-title">Umandawa Support</h1>
+                <p className="hero-subtitle">
+                  Awakening Humanity • Preserving Compassion • Building a Peaceful Future
+                </p>
+
+                <p className="hero-text">
+                  <strong>Umandawa Global Buddhist Village</strong> is a living model demonstrating harmony between spiritual awakening and sustainable living. Your contribution empowers projects in education, environment, community development, and Dhamma service — helping to create a world of mindfulness and compassion.
+                </p>
+
+                <a href="#projects" className="hero-btn">
+                  Donate Now
+                </a>
+              </div>
+            </header>
+
+            <div className="divider">❁ ☸ ❁</div>
+            {/* About Section (Image + Description) */}
+            <section className="about-section">
+              <div className="about-content">
+                <div className="about-image">
                   <img src="/img.jpg" alt="Path of Enlightenment Temple" />
                 </div>
                 <div className="about-text">
                   <h2>Venerable Samantabhadra Thero</h2>
                   <p>
-                    Venerable Samantabhadra Thero is a humble beacon of Dhamma, dedicated to guiding all beings toward peace, wisdom, and compassion.
-                    Through his gentle teachings and tireless service, he nourishes the spiritual growth of countless devotees,
-                    encouraging mindfulness and loving-kindness in daily life. His vision extends beyond temple walls — awakening hearts to the eternal truth of the Buddha's path.
+                    Venerable Samantabhadra Thero is a humble beacon of Dhamma, dedicated to guiding all beings toward peace, wisdom, and compassion. Through his gentle teachings and tireless service, he nourishes the spiritual growth of countless devotees, encouraging mindfulness and loving-kindness in daily life. His vision extends beyond temple walls — awakening hearts to the eternal truth of the Buddha's path.
                   </p>
                   <p>
-                    With your generous support, the Thero's mission of compassion and wisdom continues to flourish.
-                    Every offering you make becomes a seed of merit, sustaining his efforts to spread the light of Dhamma,
-                    uplift communities, and build a foundation of peace for generations to come.
+                    With your generous support, the Thero's mission of compassion and wisdom continues to flourish. Every offering you make becomes a seed of merit, sustaining his efforts to spread the light of Dhamma, uplift communities, and build a foundation of peace for generations to come.
                   </p>
-
                 </div>
               </div>
             </section>
-
 
             <div className="projects-section" id="projects">
               {countryCodesLoading && (
                 <div className="projects-info">Please wait while country codes are loading…</div>
               )}
-              {countryCodesError && (
-                <div className="projects-error">{countryCodesError}</div>
-              )}
+              {countryCodesError && <div className="projects-error">{countryCodesError}</div>}
               {projectData.map((project: Project, index: number) => {
                 const currentImageIndex = slideIndexes[index] ?? 0;
                 const currentImage = project.images[currentImageIndex] || project.images[0];
 
                 return (
-                  <div key={project.id} className="project-card h-full flex justify-center items-center">
+                  <div
+                    key={project.id}
+                    className="project-card h-full flex justify-center items-center"
+                  >
                     <div className="project-image h-full">
                       <img src={currentImage} alt={project.title} className="w-full h-full" />
                     </div>
@@ -377,10 +402,20 @@ const App: React.FC = () => {
                       <p className="project-desc">{project.description}</p>
                       <div className="w-full flex gap-5 mb-3">
                         <div className="w-full">
-                          <input type="text" id={`firstName-${project.id}`} placeholder="First Name" className="w-full p-2 rounded-md" />
+                          <input
+                            type="text"
+                            id={`firstName-${project.id}`}
+                            placeholder="First Name"
+                            className="w-full p-2 rounded-md"
+                          />
                         </div>
                         <div className="w-full">
-                          <input type="text" id={`lastName-${project.id}`} placeholder="Last Name" className="w-full p-2 rounded-md" />
+                          <input
+                            type="text"
+                            id={`lastName-${project.id}`}
+                            placeholder="Last Name"
+                            className="w-full p-2 rounded-md"
+                          />
                         </div>
                       </div>
                       <div className="w-full flex gap-5">
@@ -389,23 +424,40 @@ const App: React.FC = () => {
                             id={`countryCode-${project.id}`}
                             className="w-full p-2 rounded-md"
                             defaultValue=""
-                            disabled={countryCodesLoading || !!countryCodesError || countryCodes.length === 0}
+                            disabled={
+                              countryCodesLoading ||
+                              !!countryCodesError ||
+                              countryCodes.length === 0
+                            }
                           >
                             <option value="" disabled hidden>
                               Country Code
                             </option>
                             {countryCodes.map((option, index) => (
-                              <option key={`${project.id}-${option.code}-${index}`} value={option.code}>
+                              <option
+                                key={`${project.id}-${option.code}-${index}`}
+                                value={option.code}
+                              >
                                 {option.label}
                               </option>
                             ))}
                           </select>
-                          <input type="text" id={`mobile-${project.id}`} placeholder="Mobile" className="w-full p-2 rounded-md" />
+                          <input
+                            type="text"
+                            id={`mobile-${project.id}`}
+                            placeholder="Mobile"
+                            className="w-full p-2 rounded-md"
+                          />
                         </div>
                       </div>
                       <div className="w-full mt-3">
-                          <input type="text" id={`email-${project.id}`} placeholder="Email" className="w-full p-2 rounded-md" />
-                        </div>
+                        <input
+                          type="text"
+                          id={`email-${project.id}`}
+                          placeholder="Email"
+                          className="w-full p-2 rounded-md"
+                        />
+                      </div>
                       <div className="donation-section">
                         <div className="donation-amount flex items-center gap-2">
                           <span className="text-sm font-semibold">Rs</span>
@@ -418,8 +470,10 @@ const App: React.FC = () => {
                             className="flex-1"
                           />
                         </div>
-
-                        <button className="donate-btn" onClick={() => donate(project.id)}>
+                        <button
+                          className="donate-btn"
+                          onClick={() => donate(project.id)}
+                        >
                           Donate
                         </button>
                       </div>
@@ -440,15 +494,22 @@ const App: React.FC = () => {
               </p>
               <p>— Buddha</p>
               <div className="contact-info">
-                <p><strong>Contact Information</strong></p>
+                <p>
+                  <strong>Contact Information</strong>
+                </p>
                 <p>☎ +94 775 440 888</p>
                 <p>☎ +94 766 730 630</p>
                 <p>📧 info@umandawa.com</p>
                 <p>🌐 www.umandawa.com</p>
-                <p>📍 Umandawa Maha Vihara Ashramya,<br />
-                  9th post, Alipallama,<br />
-                  Madahapola, Kurunagala,<br />
-                  Sri Lanka.</p>
+                <p>
+                  📍 Umandawa Maha Vihara Ashramya,
+                  <br />
+                  9th post, Alipallama,
+                  <br />
+                  Madahapola, Kurunagala,
+                  <br />
+                  Sri Lanka.
+                </p>
                 <p>© 2025 Umandawa. Developed By Ceylon Innovation</p>
               </div>
             </footer>
@@ -456,8 +517,7 @@ const App: React.FC = () => {
         </>
       )}
     </>
-    
   );
-};
+}
 
 export default App;
