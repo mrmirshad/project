@@ -236,7 +236,7 @@ const App: React.FC = () => {
 
               <div className="hero-content">
                 <img src="/logo.jpg" alt="උමංදාව ලාංඡනය" className="temple-logo" />
-                <button
+                {/* <button
                   className="language-btn"
                   style={{
                     position: 'absolute',
@@ -268,7 +268,7 @@ const App: React.FC = () => {
                   }}
                 >
                   CyberSource Payment
-                </button>
+                </button> */}
                 <h1 className="hero-title">උමංදාව සහයෝගය</h1>
                 <p className="hero-subtitle">මනුෂ්‍යත්වය පිබිදීම • කරුණාව රැකගැනීම • සාමකාමී අනාගතයක් ගොඩනැගීම</p>
 
@@ -319,7 +319,7 @@ const App: React.FC = () => {
                     <div className="project-content">
                       <h3>{project.title}</h3>
                       <p className="project-desc">{project.description}</p>
-                      <div className="w-full flex gap-5">
+                      <div className="w-full flex gap-5 mb-3">
                         <div className="w-full">
                           <input type="text" id={`firstName-${project.id}`} placeholder="First Name" className="w-full p-2 rounded-md" />
                         </div>
