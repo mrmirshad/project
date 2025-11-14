@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import "./App.css";
-import AppEn from "./App_en";
 import CyberSourcePaymentPage from "./components/CyberSourcePaymentPage";
 import PaymentSuccess from "./components/PaymentSuccess";
 import { Routes, Route } from "react-router-dom";
@@ -216,7 +215,7 @@ const App: React.FC = () => {
       <Route path="/" element={
         <>
           {showCyberSource && <CyberSourcePaymentPage amount={selectedAmount || 0} email={email} mobile={mobile} firstName={firstName} lastName={lastName} onBack={() => setShowCyberSource(false)} />}
-          {showEnglish ? <AppEn onSwitchToSinhala={() => setShowEnglish(false)} /> : (
+          
             <>
               <div className="decorative-pattern"></div>
               <div className="falling-petals">
@@ -382,7 +381,7 @@ const App: React.FC = () => {
                 </footer>
               </div>
             </>
-          )}
+          
         </>
       } />
       <Route path="/payment-success" element={<PaymentSuccess />} />
