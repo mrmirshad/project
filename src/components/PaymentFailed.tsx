@@ -1,7 +1,7 @@
 import { useEffect } from "react";
-import { CheckCircle } from "lucide-react";
+import { XCircle } from "lucide-react";
 
-export default function PaymentSuccess() {
+export default function PaymentFailed() {
   useEffect(() => {
     // Optional popup
     setTimeout(() => {
@@ -31,8 +31,10 @@ export default function PaymentSuccess() {
           boxShadow: "0 8px 25px rgba(0,0,0,0.15)",
           textAlign: "center",
           animation: "fadeIn 1s ease",
+          justifyContent: "center",
         }}
       >
+
         <h1
           style={{
             marginTop: "20px",
@@ -41,7 +43,7 @@ export default function PaymentSuccess() {
             fontWeight: 700,
           }}
         >
-          Payment Successful 🎉
+          Payment Failed ❌
         </h1>
 
         <p
@@ -52,9 +54,9 @@ export default function PaymentSuccess() {
             lineHeight: "1.6",
           }}
         >
-          Thank you for your kind donation.
-          May you receive blessings, peace, and happiness.
-          Your support helps us continue our service.
+          Unfortunately, your payment could not be processed.  
+          Please try again or contact support if the issue persists.  
+          We appreciate your understanding.
         </p>
 
         {/* Popup */}
@@ -72,9 +74,9 @@ export default function PaymentSuccess() {
             transition: "opacity 1s",
           }}
         >
-          ✔ Your transaction has been recorded
-          ✔ Confirmation email will be sent shortly
-          ✔ You can safely close this page
+          ✗ Transaction was not completed  
+          ✗ No charges were made  
+          ✗ Please check your payment details
         </div>
 
         <a
@@ -93,7 +95,7 @@ export default function PaymentSuccess() {
             transition: "0.3s",
           }}
         >
-          Return to Website
+          Try Again
         </a>
       </div>
 

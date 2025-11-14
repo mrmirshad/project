@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import "./App.css";
 import CyberSourcePaymentPage from "./components/CyberSourcePaymentPage";
 import PaymentSuccess from "./components/PaymentSuccess";
+import PaymentFailed from "./components/PaymentFailed";
 import { Routes, Route } from "react-router-dom";
 
 interface Project {
@@ -385,6 +386,7 @@ const App: React.FC = () => {
         </>
       } />
       <Route path="/payment-success" element={<PaymentSuccess />} />
+      <Route path="/payment-failed" element={<PaymentFailed />} />
     </Routes>
   );
 };
