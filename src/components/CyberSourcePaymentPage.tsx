@@ -26,7 +26,7 @@ const CyberSourcePaymentPage = ({ amount, email, mobile, firstName, lastName, on
     const fetchPaymentData = async () => {
         try {
             // Call Node.js backend
-            const response = await fetch('https://umandawa-backend.onrender.com/api/cybersource_payment', {
+            const response = await fetch('http://www.umandawacare.com/api/cybersource_payment', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',

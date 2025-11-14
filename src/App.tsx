@@ -3,7 +3,7 @@ import "./App.css";
 import CyberSourcePaymentPage from "./components/CyberSourcePaymentPage";
 import PaymentSuccess from "./components/PaymentSuccess";
 import PaymentFailed from "./components/PaymentFailed";
-import { Route, Routes } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 interface Project {
   id: number;
@@ -84,6 +84,7 @@ const projectData: Project[] = [
 ];
 
 const App: React.FC = () => {
+  const navigate = useNavigate();
   const [petals, setPetals] = useState<Petal[]>([]);
   const [slideIndexes, setSlideIndexes] = useState<number[]>(() => projectData.map(() => 0));
   const [selectedAmount, setSelectedAmount] = useState<number | null>(null);
@@ -280,26 +281,36 @@ const App: React.FC = () => {
       id: i,
       left: `${Math.random() * 100}%`,
       animationDelay: `${Math.random() * 10}s`,
-      animationDuration: `${5 + Math.random() * 10}s`
+      animationDuration: `${5 + Math.random() * 10}s`,
     }));
     setPetals(newPetals);
   }, []);
 
   return (
-    // <Routes>
-    //   <Route path="/" element={
     <>
-      {showCyberSource ? <CyberSourcePaymentPage amount={selectedAmount || 0} email={email} mobile={mobile} firstName={firstName} lastName={lastName} onBack={() => setShowCyberSource(false)} /> : (
-
+      {showCyberSource ? (
+        <CyberSourcePaymentPage
+          amount={selectedAmount || 0}
+          email={email}
+          mobile={mobile}
+          firstName={firstName}
+          lastName={lastName}
+          onBack={() => setShowCyberSource(false)}
+        />
+      ) : (
         <>
           <div className="decorative-pattern"></div>
           <div className="falling-petals">
             {petals.map((petal) => (
-              <div key={petal.id} className="petal" style={{
-                left: petal.left,
-                animationDelay: petal.animationDelay,
-                animationDuration: petal.animationDuration
-              }}>
+              <div
+                key={petal.id}
+                className="petal"
+                style={{
+                  left: petal.left,
+                  animationDelay: petal.animationDelay,
+                  animationDuration: petal.animationDuration,
+                }}
+              >
                 🪻
               </div>
             ))}
@@ -311,48 +322,44 @@ const App: React.FC = () => {
 
               <div className="hero-content">
                 <img src="/logo.jpg" alt="උමංදාව ලාංඡනය" className="temple-logo" />
-                {/* <button
+                <button
                   className="language-btn"
+                  onClick={() => {
+                    if (typeof window !== "undefined") {
+                      window.localStorage.setItem("lang", "en");
+                    }
+                    navigate("/en");
+                  }}
                   style={{
-                    position: 'absolute',
-                    top: '20px',
-                    right: '20px',
-                    background: 'rgba(255, 255, 255, 0.8)',
-                    border: 'none',
-                    padding: '5px 10px',
-                    borderRadius: '5px',
-                    cursor: 'pointer',
-                    fontSize: '14px'
+                    position: "absolute",
+                    top: "20px",
+                    right: "20px",
+                    background: "rgba(255, 255, 255, 0.8)",
+                    border: "none",
+                    padding: "5px 10px",
+                    borderRadius: "5px",
+                    cursor: "pointer",
+                    fontSize: "14px",
                   }}
                 >
                   English
                 </button>
-                <button
-                  className="cybersource-btn"
-                  onClick={() => setShowCyberSource(true)}
-                  style={{
-                    position: 'absolute',
-                    top: '20px',
-                    right: '120px',
-                    background: 'rgba(255, 255, 255, 0.8)',
-                    border: 'none',
-                    padding: '5px 10px',
-                    borderRadius: '5px',
-                    cursor: 'pointer',
-                    fontSize: '14px'
-                  }}
-                >
-                  CyberSource Payment
-                </button> */}
-                <h1 className="hero-title">උමංදාව සහයෝගය</h1>
-                <p className="hero-subtitle">මනුෂ්‍යත්වය පිබිදීම • කරුණාව රැකගැනීම • සාමකාමී අනාගතයක් ගොඩනැගීම</p>
 
-                <p className="hero-text">
-                  <strong>උමංදාව ගෝලීය බෞද්ධ ගම්මානය</strong> යනු අධ්‍යාත්මික පිබිදීම සහ තිරසාර ජීවන රටාව අතර සාමය පෙන්වන ජීවමාන ආදර්ශයකි.
-                  ඔබේ දායකත්වය අධ්‍යාපනය, පරිසරය, ප්‍රජා සංවර්ධනය සහ ධර්ම සේවාවේ ව්‍යාපෘති බල ගන්වයි — සිහියෙන් හා කරුණාවෙන් යුත් ලෝකයක් නිර්මාණය කිරීමට උපකාරී වේ.
+                <h1 className="hero-title">උමංදාව සහයෝගය</h1>
+                <p className="hero-subtitle">
+                  මනුෂ්‍යත්වය පිබිදීම • කරුණාව රැකගැනීම • සාමකාමී අනාගතයක් ගොඩනැගීම
                 </p>
 
-                <a href="#projects" className="hero-btn">දැන් දායක වන්න</a>
+                <p className="hero-text">
+                  <strong>උමංදාව ගෝලීය බෞද්ධ ගම්මානය</strong> යනු අධ්‍යාත්මික පිබිදීම සහ තිරසාර
+                  ජීවන රටාව අතර සාමය පෙන්වන ජීවමාන ආදර්ශයකි. ඔබේ දායකත්වය අධ්‍යාපනය, පරිසරය,
+                  ප්‍රජා සංවර්ධනය සහ ධර්ම සේවාවේ ව්‍යාපෘති බල ගන්වයි — සිහියෙන් හා කරුණාවෙන් යුත්
+                  ලෝකයක් නිර්මාණය කිරීමට උපකාරී වේ.
+                </p>
+
+                <a href="#projects" className="hero-btn">
+                  දැන් දායක වන්න
+                </a>
               </div>
             </header>
 
@@ -366,34 +373,36 @@ const App: React.FC = () => {
                 <div className="about-text">
                   <h2> ගරු සමන්තභද්‍ර ස්වාමීන් වහන්සේ</h2>
                   <p>
-                    ගරු සමන්තභද්‍ර ස්වාමීන් වහන්සේ යනු ධර්මයේ නිහතමානී ආලෝක කදම්බයකි, සියලු සත්වයන් සාමය, ප්‍රඥාව සහ කරුණාව කරා මඟ පෙන්වීමට කැපවී සිටී.
-                    ඔහුගේ මෘදු ඉගැන්වීම් සහ වෙහෙස මහන්සි වී කරන සේවාව තුළින්, ඔහු අසංඛ්‍යාත භක්තිකයන්ගේ අධ්‍යාත්මික වර්ධනය පෝෂණය කරමින් සිටී,
-                    දෛනික ජීවිතයේ සිහිය සහ මෛත්‍රී බව දිරිමත් කරයි. ඔහුගේ දැක්ම විහාරස්ථාන බිත්ති ඉක්මවා විහිදේ — බුද්ධ මාර්ගයේ නිත්‍ය සත්‍යය වෙත හදවත් පිබිදීම.
+                    ගරු සමන්තභද්‍ර ස්වාමීන් වහන්සේ යනු ධර්මයේ නිහතමානී ආලෝක කදම්බයකි, සියලු සත්වයන්
+                    සාමය, ප්‍රඥාව සහ කරුණාව කරා මඟ පෙන්වීමට කැපවී සිටී. ඔහුගේ මෘදු ඉගැන්වීම් සහ වෙහෙස
+                    මහන්සි වී කරන සේවාව තුළින්, ඔහු අසංඛ්‍යාත භක්තිකයන්ගේ අධ්‍යාත්මික වර්ධනය පෝෂණය
+                    කරමින් සිටී, දෛනික ජීවිතයේ සිහිය සහ මෛත්‍රී බව දිරිමත් කරයි. ඔහුගේ දැක්ම විහාරස්ථාන
+                    බිත්ති ඉක්මවා විහිදේ — බුද්ධ මාර්ගයේ නිත්‍ය සත්‍යය වෙත හදවත් පිබිදීම.
                   </p>
                   <p>
-                    ඔබේ කාරුණික සහයෝගයෙන්, ස්වාමීන් වහන්සේගේ කරුණා සහ ප්‍රඥාවේ මෙහෙවර දිගටම වර්ධනය වේ.
-                    ඔබ කරන සෑම පූජාවක්ම පින් බීජයක් බවට පත්වේ, ධර්මයේ ආලෝකය පැතිරවීමට,
-                    ප්‍රජාවන් උසස් කිරීමට සහ පරම්පරා ගණනාවකට සාමයේ අඩිතාලමක් ගොඩනැගීමට ඔහුගේ උත්සාහයන් පවත්වාගෙන යනවා.
+                    ඔබේ කාරුණික සහයෝගයෙන්, ස්වාමීන් වහන්සේගේ කරුණා සහ ප්‍රඥාවේ මෙහෙවර දිගටම වර්ධනය
+                    වේ. ඔබ කරන සෑම පූජාවක්ම පින් බීජයක් බවට පත්වේ, ධර්මයේ ආලෝකය පැතිරවීමට, ප්‍රජාවන්
+                    උසස් කිරීමට සහ පරම්පරා ගණනාවකට සාමයේ අඩිතාලමක් ගොඩනැගීමට ඔහුගේ උත්සාහයන්
+                    පවත්වාගෙන යනවා.
                   </p>
-
                 </div>
               </div>
             </section>
-
 
             <div className="projects-section" id="projects">
               {countryCodesLoading && (
                 <div className="projects-info">රට කේත ලබා ගත හැකි වන තෙක් රැඳී සිටින්න…</div>
               )}
-              {countryCodesError && (
-                <div className="projects-error">{countryCodesError}</div>
-              )}
+              {countryCodesError && <div className="projects-error">{countryCodesError}</div>}
               {projectData.map((project: Project, index: number) => {
                 const currentImageIndex = slideIndexes[index] ?? 0;
                 const currentImage = project.images[currentImageIndex] || project.images[0];
 
                 return (
-                  <div key={project.id} className="project-card h-full flex justify-center items-center">
+                  <div
+                    key={project.id}
+                    className="project-card h-full flex justify-center items-center"
+                  >
                     <div className="project-image h-full">
                       <img src={currentImage} alt={project.title} className="w-full h-full" />
                     </div>
@@ -402,10 +411,20 @@ const App: React.FC = () => {
                       <p className="project-desc">{project.description}</p>
                       <div className="w-full flex gap-5 mb-3">
                         <div className="w-full">
-                          <input type="text" id={`firstName-${project.id}`} placeholder="First Name" className="w-full p-2 rounded-md" />
+                          <input
+                            type="text"
+                            id={`firstName-${project.id}`}
+                            placeholder="First Name"
+                            className="w-full p-2 rounded-md"
+                          />
                         </div>
                         <div className="w-full">
-                          <input type="text" id={`lastName-${project.id}`} placeholder="Last Name" className="w-full p-2 rounded-md" />
+                          <input
+                            type="text"
+                            id={`lastName-${project.id}`}
+                            placeholder="Last Name"
+                            className="w-full p-2 rounded-md"
+                          />
                         </div>
                       </div>
                       <div className="w-full flex gap-5">
@@ -414,34 +433,56 @@ const App: React.FC = () => {
                             id={`countryCode-${project.id}`}
                             className="w-full p-2 rounded-md"
                             defaultValue=""
-                            disabled={countryCodesLoading || !!countryCodesError || countryCodes.length === 0}
+                            disabled={
+                              countryCodesLoading ||
+                              !!countryCodesError ||
+                              countryCodes.length === 0
+                            }
                           >
                             <option value="" disabled hidden>
                               Country Code
                             </option>
-                            {countryCodes.map((option) => (
-                              <option key={`${project.id}-${option.code}`} value={option.code}>
+                            {countryCodes.map((option, index) => (
+                              <option
+                                key={`${project.id}-${option.code}-${index}`}
+                                value={option.code}
+                              >
                                 {option.label}
                               </option>
                             ))}
                           </select>
-                          <input type="text" id={`mobile-${project.id}`} placeholder="Mobile" className="w-full p-2 rounded-md" />
+                          <input
+                            type="text"
+                            id={`mobile-${project.id}`}
+                            placeholder="Mobile"
+                            className="w-full p-2 rounded-md"
+                          />
                         </div>
                       </div>
                       <div className="w-full mt-3">
-                          <input type="text" id={`email-${project.id}`} placeholder="Email" className="w-full p-2 rounded-md" />
-                        </div>
+                        <input
+                          type="text"
+                          id={`email-${project.id}`}
+                          placeholder="Email"
+                          className="w-full p-2 rounded-md"
+                        />
+                      </div>
                       <div className="donation-section">
-                        <div className="donation-amount">
+                        <div className="donation-amount flex items-center gap-2">
+                          <span className="text-sm font-semibold">Rs</span>
                           <input
                             type="number"
                             id={`amount-${project.id}`}
-                            placeholder="Enter amount ($)"
+                            placeholder={project.defaultAmount.toString()}
                             min={1}
                             defaultValue={project.defaultAmount}
+                            className="flex-1"
                           />
                         </div>
-                        <button className="donate-btn" onClick={() => donate(project.id)}>
+                        <button
+                          className="donate-btn"
+                          onClick={() => donate(project.id)}
+                        >
                           දායක වන්න
                         </button>
                       </div>
@@ -462,15 +503,22 @@ const App: React.FC = () => {
               </p>
               <p>— Buddha</p>
               <div className="contact-info">
-                <p><strong>Contact Information</strong></p>
+                <p>
+                  <strong>Contact Information</strong>
+                </p>
                 <p>☎ +94 775 440 888</p>
                 <p>☎ +94 766 730 630</p>
                 <p>📧 info@umandawa.com</p>
                 <p>🌐 www.umandawa.com</p>
-                <p>📍 Umandawa Maha Vihara Ashramya,<br />
-                  9th post, Alipallama,<br />
-                  Madahapola, Kurunagala,<br />
-                  Sri Lanka.</p>
+                <p>
+                  📍 Umandawa Maha Vihara Ashramya,
+                  <br />
+                  9th post, Alipallama,
+                  <br />
+                  Madahapola, Kurunagala,
+                  <br />
+                  Sri Lanka.
+                </p>
                 <p>© 2025 Umandawa. Developed By Ceylon Innovation</p>
               </div>
             </footer>
@@ -478,11 +526,7 @@ const App: React.FC = () => {
         </>
       )}
     </>
-    //   } />
-    //   <Route path="/payment-success" element={<PaymentSuccess />} />
-    //   <Route path="/payment-failed" element={<PaymentFailed />} />
-    // </Routes>
   );
-};
+}
 
 export default App;
