@@ -1,9 +1,13 @@
 {
   "$schema": "https://openapi.vercel.sh/vercel.json",
   "rewrites": [
+<<<<<<< HEAD
     {
       "source": "/:path*",
       "destination": "/index.html"
     }
+=======
+    { "source": "/(.*)", "destination": "/index.html" }
+>>>>>>> parent of cedbe5a (Update vercel.json)
   ]
 }

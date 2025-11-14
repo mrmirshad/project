@@ -46,7 +46,7 @@ const CyberSourcePaymentPage = ({ amount, email, mobile, firstName, lastName, on
             }
 
             const data = await response.json();
-            
+                
             if (!data.success) {
                 throw new Error(data.error || 'Failed to prepare payment');
             }
@@ -70,7 +70,7 @@ const CyberSourcePaymentPage = ({ amount, email, mobile, firstName, lastName, on
             const form = document.getElementById('cybersource_payment_form') as HTMLFormElement | null;
             if (form) {
                 setTimeout(() => {
-                    form.submit();
+                    form.submit();  
                 }, 1000); // 1 second delay to show the redirect message
             }
         }
