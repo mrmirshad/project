@@ -54,7 +54,7 @@ export default function PaymentFailed() {
             lineHeight: "1.6",
           }}
         >
-          Unfortunately, your payment could not be processed.  
+          Unfortunately, your payment could not be processed at the moment.  
           Please try again or contact support if the issue persists.  
           We appreciate your understanding.
         </p>
