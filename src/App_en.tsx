@@ -305,52 +305,37 @@ const App: React.FC = () => {
             ))}
           </div>
 
-          <div className="container">
-            <header className="hero">
-              <div className="hero-overlay"></div>
+          <header className="hero">
+            <div className="hero-overlay"></div>
 
-              <div className="hero-content">
-                <img src="/logo.jpg" alt="Umandawa Logo" className="temple-logo" />
-                <button
-                  className="language-btn"
-                  onClick={() => {
-                    if (typeof window !== 'undefined') {
-                      window.localStorage.setItem('lang', 'si');
-                    }
-                    navigate("/");
-                  }}
-                  style={{
-                    position: 'absolute',
-                    top: '20px',
-                    right: '20px',
-                    background: 'rgba(255, 255, 255, 0.8)',
-                    border: 'none',
-                    padding: '5px 10px',
-                    borderRadius: '5px',
-                    cursor: 'pointer',
-                    fontSize: '14px'
-                  }}
-                >
-                  සිංහල
-                </button>
+            <div className="hero-content">
+              <img src="/logo.jpg" alt="Umandawa Logo" className="temple-logo" />
+              <button
+                className="language-btn"
+                onClick={() => {
+                  if (typeof window !== 'undefined') {
+                    window.localStorage.setItem('lang', 'si');
+                  }
+                  navigate("/");
+                }}
+                style={{
+                  position: 'absolute',
+                  top: '20px',
+                  right: '20px',
+                  background: 'linear-gradient(135deg, #8b6f47 0%, #6b4423 100%)',
+                  color: '#ffffff',
+                  border: 'none',
+                  padding: '5px 10px',
+                  borderRadius: '5px',
+                  cursor: 'pointer',
+                  fontSize: '14px'
+                }}
+              >
+                සිංහල
+              </button>
 
-                <h1 className="hero-title">Umandawa Support</h1>
-                <p className="hero-subtitle">Awakening Humanity • Preserving Compassion • Building a Peaceful Future</p>
-
-                <p className="hero-text">
-                  <strong>Umandawa Global Buddhist Village</strong> is a living model demonstrating harmony between spiritual awakening and sustainable living.
-                  Your contribution empowers projects in education, environment, community development, and Dhamma service — helping to create a world of mindfulness and compassion.
-                </p>
-
-                <a href="#projects" className="hero-btn">Donate Now</a>
-              </div>
-            </header>
-
-            <div className="divider">❁ ☸ ❁</div>
-            {/* About Section (Image + Description) */}
-            <section className="about-section">
-              <div className="about-content">
-                <div className="about-image">
+              <h1 className="hero-title">Umandawa Support</h1>
+              <p className="hero-subtitle">Awakening Humanity • Preserving Compassion • Building a Peaceful Future</p>
                   <img src="/img.jpg" alt="Path of Enlightenment Temple" />
                 </div>
                 <div className="about-text">
