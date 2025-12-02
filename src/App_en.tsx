@@ -41,7 +41,7 @@ const projectData: Project[] = [
   description: "Use this option to donate any amount you wish to support Umandawa's various social service projects. Every contribution you make is utilized for our community service activities.",
   blessing: "Your contribution touches countless lives",
   defaultAmount: 1000,
-  images: ["/p3_img1.jpg", "/p3_img2.jpg", "/p3_img3.jpg", "/p3_img4.jpg", "/p3_img5.jpg", "/p3_img6.jpg"]
+  images: ["/p1_img1.jpg"]
 },
   {
     id: 1,
@@ -50,7 +50,7 @@ const projectData: Project[] = [
       "Umandawa provides monthly scholarships to students who excel academically but face financial difficulties. You too can participate in this program.",
     blessing: "May happiness and prosperity come to you",
     defaultAmount: 5000,
-    images: ["/p1_img1.jpg", "/p1_img2.jpg", "/p1_img3.jpg", "/p1_img4.jpg", "/p1_img5.jpg", "/p1_img6.jpg"],
+    images: ["/p1_img2.jpg"],
   },
   {
     id: 2,
@@ -59,7 +59,7 @@ const projectData: Project[] = [
       "Umandawa has implemented a project to protect the lives and habitat of wild elephants by renovating a pond at Habarana Eco Park to meet the drinking water needs of elephants. You can also support this noble initiative.",
     blessing: "May good fortune come to all living beings",
     defaultAmount: 5000,
-    images: ["/p2_img1.jpg", "/p2_img2.jpg", "/p2_img3.jpg", "/p2_img4.jpg", "/p2_img5.jpg"],
+    images: ["/p1_img3.jpg"],
   },
   {
     id: 3,
@@ -68,7 +68,7 @@ const projectData: Project[] = [
       "Umandawa has launched a program to prepare new entrepreneurs to help people in difficult villages overcome economic challenges. Food production and training programs in Vavuniya are the first phase.",
     blessing: "May your kindness be an eternal light",
     defaultAmount: 5000,
-    images: ["/p3_img1.jpg", "/p3_img2.jpg", "/p3_img3.jpg", "/p3_img4.jpg", "/p3_img5.jpg"],
+    images: ["/p1_img4.jpg"],
   },
   {
     id: 4,
@@ -77,7 +77,7 @@ const projectData: Project[] = [
       "Umandawa operates a special program providing equipment and training for the development of cricket in schools with limited facilities. You too can contribute to this noble mission.",
     blessing: "May your contribution nurture a new generation",
     defaultAmount: 5000,
-    images: ["/p4_img1.jpg", "/p4_img2.jpg", "/p4_img3.jpg", "/p4_img4.jpg", "/p4_img5.jpg", "/p4_img6.jpg"],
+    images: ["/p1_img5.jpg"],
   },
   {
     id: 5,
@@ -86,7 +86,7 @@ const projectData: Project[] = [
       "Umandawa offers you the sacred opportunity to make offerings to the monks and nuns of the Buddhist global village. May the purity of merit remain in your life.",
     blessing: "A world filled with merit through service to the Sangha",
     defaultAmount: 5000,
-    images: ["/p5_img1.jpg", "/p5_img2.jpg", "/p5_img3.jpg", "/p5_img4.jpg", "/p5_img5.jpg"],
+    images: ["/p1_img6.jpg"],
   },
   {
     id: 6,
@@ -95,14 +95,13 @@ const projectData: Project[] = [
       "This is a program that extends the agricultural revolution carried out by Umandawa to schools, providing students with knowledge about home gardening. The first phase began at Richmond College, Galle.",
     blessing: "May hearts be purified through blooming gardens",
     defaultAmount: 5000,
-    images: ["/p6_img1.jpg", "/p6_img2.jpg", "/p6_img3.jpg", "/p6_img4.jpg"],
+    images: ["/p1_img2.jpg"],
   },
 ];
 
 const App: React.FC = () => {
   const navigate = useNavigate();
   const [petals, setPetals] = useState<Petal[]>([]);
-  const [slideIndexes, setSlideIndexes] = useState<number[]>(() => projectData.map(() => 0));
   const [selectedAmount, setSelectedAmount] = useState<number | null>(null);
 
   const [mobile, setMobile] = useState('');
@@ -269,30 +268,6 @@ const App: React.FC = () => {
   }, []);
 
   useEffect(() => {
-    const intervals = projectData.map((project: Project, index: number) => {
-      if (project.images.length <= 1) {
-        return null;
-      }
-
-      return window.setInterval(() => {
-        setSlideIndexes((prev) => {
-          const next = [...prev];
-          next[index] = ((prev[index] ?? 0) + 1) % project.images.length;
-          return next;
-        });
-      }, 5000);
-    });
-
-    return () => {
-      intervals.forEach((intervalId: number | null) => {
-        if (intervalId) {
-          window.clearInterval(intervalId);
-        }
-      });
-    };
-  }, []);
-
-  useEffect(() => {
     const newPetals = Array.from({ length: 5 }, (_, i) => ({
       id: i,
       left: `${Math.random() * 100}%`,
@@ -401,9 +376,8 @@ const App: React.FC = () => {
                 <div className="projects-info">Please wait while country codes are loading…</div>
               )}
               {countryCodesError && <div className="projects-error">{countryCodesError}</div>}
-              {projectData.map((project: Project, index: number) => {
-                const currentImageIndex = slideIndexes[index] ?? 0;
-                const currentImage = project.images[currentImageIndex] || project.images[0];
+              {projectData.map((project: Project) => {
+                const currentImage = project.images[0];
 
                 return (
                   <div
