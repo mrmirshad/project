@@ -41,7 +41,7 @@ const projectData: Project[] = [
   description: "උමංදාව සංවිධානයේ විවිධ සමාජ සේවා ව්‍යාපෘති සඳහා ඔබේ කැමති ඕනෑම මුදලක් ආධාර කිරීමට මෙම විකල්පය භාවිතා කරන්න. ඔබේ සෑම දායකත්වයක්ම අපගේ සමාජ සේවා කටයුතු වෙනුවෙන් යොදා ගනු ලැබේ.",
   blessing: "ඔබේ දායකත්වය අසංඛ්‍යාත ජීවිත ස්පර්ශ කරයි",
   defaultAmount: 1000,
-  images: ["/p3_img1.jpg", "/p3_img2.jpg", "/p3_img3.jpg", "/p3_img4.jpg", "/p3_img5.jpg", "/p3_img6.jpg"]
+  images: ["/p1_img1.jpg"]
 },
   {
     id: 1,
@@ -50,7 +50,7 @@ const projectData: Project[] = [
       "අධ්‍යාපනය සඳහා දක්ෂතා දක්වන නමුත් ආර්ථික අපහසුතා පවතින සිසු දරුවන් සඳහා උමංදාව මඟින් සෑම මසකම ශිෂ්‍යත්වයක් ලබා දේ. මෙම වැඩසටහනට ඔබටත් සහභාගී විය හැකිය.",
     blessing: "සතුට සහ සෞභාග්‍යය ඔබ වෙත ලැබේවා",
     defaultAmount: 5000,
-    images: ["/p1_img1.jpg", "/p1_img2.jpg", "/p1_img3.jpg", "/p1_img4.jpg", "/p1_img5.jpg", "/p1_img6.jpg"],
+    images: ["/p1_img2.jpg"],
   },
   {
     id: 2,
@@ -59,7 +59,7 @@ const projectData: Project[] = [
       "උමංදාව මඟින් වන අලින්ගේ ජීවිතය සහ පරිසරය ආරක්ෂා කිරීමේ අරමුණින් හබරණ Eco Park හි වැවක් පිළිසකර කරමින් අලින්ගේ පානිය ජල අවශ්‍යතා සපුරාලන ව්‍යාපෘතියක් ක්‍රියාත්මක කර ඇත. ඔබටත් මේ උතුම් වැඩපිළිවෙළට සහයෝගය දැක්විය හැක.",
     blessing: "සියලු සත්වයන්ට යහපත් වාසනාව ලැබේවා",
     defaultAmount: 5000,
-    images: ["/p2_img1.jpg", "/p2_img2.jpg", "/p2_img3.jpg", "/p2_img4.jpg", "/p2_img5.jpg"],
+    images: ["/p1_img3.jpg"],
   },
   {
     id: 3,
@@ -68,7 +68,7 @@ const projectData: Project[] = [
       "දුෂ්කර ගම්මානවල ජනතාවට ආර්ථික අභියෝග ජය ගැනීම සඳහා උමංදාව නව ව්‍යවසායකයන් සූදානම් කරන වැඩසටහනක් ආරම්භ කර ඇත. වවුනියාවේ ආහාර නිෂ්පාදන සහ පුහුණු වැඩසටහන් මෙහි පළමු අදියරයි.",
     blessing: "ඔබේ කරුණා සදාකාලික ආලෝකයක් වේවා",
     defaultAmount: 5000,
-    images: ["/p3_img1.jpg", "/p3_img2.jpg", "/p3_img3.jpg", "/p3_img4.jpg", "/p3_img5.jpg"],
+    images: ["/p1_img4.jpg"],
   },
   {
     id: 4,
@@ -77,7 +77,7 @@ const projectData: Project[] = [
       "පහසුකම් අඩු පාසල්වල ක්‍රිකට් ක්‍රීඩාවේ දියුණුව සඳහා උමංදාව මඟින් උපකරණ සහ පුහුණුව ලබා දෙන විශේෂ වැඩසටහනක් ක්‍රියාත්මක වේ. ඔබටත් මේ උතුම් මෙහෙයුමට දායක විය හැක.",
     blessing: "ඔබේ පරිත්‍යාගය අලුත් පරපුරක් බබලවයි",
     defaultAmount: 5000,
-    images: ["/p4_img1.jpg", "/p4_img2.jpg", "/p4_img3.jpg", "/p4_img4.jpg", "/p4_img5.jpg", "/p4_img6.jpg"],
+    images: ["/p1_img5.jpg"],
   },
   {
     id: 5,
@@ -86,7 +86,7 @@ const projectData: Project[] = [
       "උමංදාව බෞද්ධ විශ්ව ගම්මානයේ භික්ෂු භික්ෂුණී ආර්‍ය මහා සංඝයා සඳහා දානය පූජා කිරීමේ උතුම් අවස්ථාවක් ඔබටද හිමි වේ. පුණ්‍ය පිරිසිදුකම ඔබේ ජීවිතයට රැඳේවා.",
     blessing: "සංඝසේවයෙන් පින් පිරි ලෝකයක්",
     defaultAmount: 5000,
-    images: ["/p5_img1.jpg", "/p5_img2.jpg", "/p5_img3.jpg", "/p5_img4.jpg", "/p5_img5.jpg"],
+    images: ["/p1_img6.jpg"],
   },
   {
     id: 6,
@@ -95,14 +95,13 @@ const projectData: Project[] = [
       "උමංදාව මඟින් ක්‍රියාත්මක කරන කෘෂිකර්ම විප්ලවය පාසල්වලටද ව්‍යාප්ත කරමින් සිසු සිසුවියන්ට ගෙවතු වගාව පිළිබඳ දැනුම ලබා දෙන වැඩසටහනකි. පළමු අදියර ගාල්ල රිච්මන්ඩ් විද්‍යාලයෙන් ආරම්භ විය.",
     blessing: "මල පීසෙන ගෙවතු මගින් හදවත පිරිසිදුවේවා",
     defaultAmount: 5000,
-    images: ["/p6_img1.jpg", "/p6_img2.jpg", "/p6_img3.jpg", "/p6_img4.jpg"],
+    images: ["/p1_img2.jpg"],
   },
 ];
 
 const App: React.FC = () => {
   const navigate = useNavigate();
   const [petals, setPetals] = useState<Petal[]>([]);
-  const [slideIndexes, setSlideIndexes] = useState<number[]>(() => projectData.map(() => 0));
   const [selectedAmount, setSelectedAmount] = useState<number | null>(null);
 
   const [mobile, setMobile] = useState('');
@@ -268,29 +267,6 @@ const App: React.FC = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  useEffect(() => {
-    const intervals = projectData.map((project: Project, index: number) => {
-      if (project.images.length <= 1) {
-        return null;
-      }
-
-      return window.setInterval(() => {
-        setSlideIndexes((prev) => {
-          const next = [...prev];
-          next[index] = ((prev[index] ?? 0) + 1) % project.images.length;
-          return next;
-        });
-      }, 5000);
-    });
-
-    return () => {
-      intervals.forEach((intervalId: number | null) => {
-        if (intervalId) {
-          window.clearInterval(intervalId);
-        }
-      });
-    };
-  }, []);
 
   useEffect(() => {
     const newPetals = Array.from({ length: 5 }, (_, i) => ({
@@ -411,9 +387,8 @@ const App: React.FC = () => {
                 <div className="projects-info">රට කේත ලබා ගත හැකි වන තෙක් රැඳී සිටින්න…</div>
               )}
               {countryCodesError && <div className="projects-error">{countryCodesError}</div>}
-              {projectData.map((project: Project, index: number) => {
-                const currentImageIndex = slideIndexes[index] ?? 0;
-                const currentImage = project.images[currentImageIndex] || project.images[0];
+              {projectData.map((project: Project) => {
+                const currentImage = project.images[0];
 
                 return (
                   <div
