@@ -28,6 +28,22 @@ interface CountryCodeOption {
 
 const projectData: Project[] = [
   {
+  id: 2,
+  title: "For the Education of Ten Thousand Children",
+  description: "Due to the devastating floods, Umandawa provides educational support worth Rs. 5000 per child for ten thousand children who lost their books and school supplies. You can sponsor 5, 10, or 20 children and support their education. Let's rebuild our fallen nation together!",
+  blessing: "Through your service, the future of many children shines bright",
+  defaultAmount: 5000,
+  images: ["/scl.jpeg"]
+},
+{
+  id: 3,
+  title: "Other - General Donations",
+  description: "Use this option to donate any amount you wish to support Umandawa's various social service projects. Every contribution you make is utilized for our community service activities.",
+  blessing: "Your contribution touches countless lives",
+  defaultAmount: 1000,
+  images: ["/p3_img1.jpg", "/p3_img2.jpg", "/p3_img3.jpg", "/p3_img4.jpg", "/p3_img5.jpg", "/p3_img6.jpg"]
+},
+  {
     id: 1,
     title: "Umandawa Scholarship Program",
     description:
