@@ -28,15 +28,13 @@ interface CountryCodeOption {
 
 const projectData: Project[] = [
   {
-  id: 2,
-  title: "Umandawa for the Education of Ten Thousand Children!",
-  description:
-    "Due to the devastating floods, Umandawa is providing educational support worth Rs. 5,000 per child for ten thousand children who lost their books and school supplies. You can sponsor 5, 10, or 20 children to support their education. Let's rebuild our fallen nation together!\n\nHow to Contribute:\nMake your donation using any of the methods below and WhatsApp your fund transfer receipt to +94 773 686 686 for immediate confirmation.\n\nFor inquiries, contact: +94 775 440 888\n\nBank Transfer Details:\nUmandawa Saviya Foundation\nAccount No: 344200150024678\nPeople’s Bank – Melsiripura Branch\nBank Code: 7135\nSWIFT: PSBKLKLX",
-  blessing: "Through your service, the future of many children shines bright.",
-  defaultAmount: 5000,
-  images: ["/scl.jpeg"]
-},
-
+    id: 2,
+    title: "For the Education of Ten Thousand Children",
+    description: "The recent severe flooding across Sri Lanka has left countless children without schoolbooks, supplies, or essential learning materials, creating major disruptions to their education and daily lives.In response, Umandawa has launched a nationwide initiative to support 10,000 affected children, providing each child with Rs. 5,000 worth of school supplies and books.This effort is more than relief — it is an investment in rebuilding hope and ensuring every child can return to learning as quickly as possible.We warmly invite individuals and organizations to step forward and sponsor 5, 10, 20, or more children.Your generosity will directly empower families, strengthen communities, and help restore stability during this challenging time. ",
+    blessing: "Through your service, the future of many children shines bright",
+    defaultAmount: 5000,
+    images: ["/scl.jpeg"]
+  },
   {
     id: 3,
     title: "Other - General Donations",
